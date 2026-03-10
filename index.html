@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,500;1,600&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-/*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
     /* Alberta palette:
@@ -59,13 +59,18 @@
     border-bottom: 1px solid transparent;
   }
   .nav.scrolled {
-    background: rgba(246,243,236,0.94); backdrop-filter: blur(14px);
-    border-bottom-color: var(--line); padding: 1.1rem 3.5rem;
+    background: rgba(46,64,56,0.96); backdrop-filter: blur(14px);
+    border-bottom-color: rgba(255,255,255,0.08); padding: 1.1rem 3.5rem;
   }
   .nav-logo {
     font-family: var(--serif); font-size: 1.1rem; font-weight: 600;
     letter-spacing: 0.01em; color: var(--ink);
   }
+  .nav.scrolled .nav-logo { color: var(--bg); }
+  .nav.scrolled .nav-links a { color: rgba(246,243,236,0.6); }
+  .nav.scrolled .nav-links a:hover { color: var(--bg); }
+  .nav.scrolled .nav-prints-link { color: var(--gold); border-bottom-color: rgba(196,154,60,0.4); }
+  .nav.scrolled .ham-line { background: var(--bg); }
   .nav-links { display: flex; gap: 2.5rem; align-items: center; }
   .nav-links a {
     font-size: 0.8rem; font-weight: 400; letter-spacing: 0.07em;
@@ -201,7 +206,7 @@
     display: flex; align-items: center; gap: 1rem;
   }
   .sec-title::before {
-    content: ''; display: block; width: 20px; height: 1px; background: var(--gold);
+    content: ''; display: block; width: 20px; height: 1px; background: var(--sky);
   }
   .sec-link { font-size: 0.75rem; letter-spacing: 0.08em; color: var(--soft); transition: color 0.2s; }
   .sec-link:hover { color: var(--ink); }
@@ -272,7 +277,7 @@
     font-family: var(--serif); font-size: clamp(1.5rem,2.5vw,2.2rem); font-weight: 600;
     color: var(--bg); line-height: 1.2;
   }
-  .prints-title em { font-style: italic; color: rgba(246,243,236,0.5); }
+  .prints-title em { font-style: italic; color: var(--rust); }
   .prints-body { font-size: 0.9rem; font-weight: 300; line-height: 1.85; color: rgba(246,243,236,0.55); }
 
   .prints-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; position: relative; z-index: 1; }
@@ -327,14 +332,14 @@
   .about-eyebrow {
     display: flex; align-items: center; gap: 0.75rem;
     font-size: 0.68rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase;
-    color: var(--gold); margin-bottom: 1.2rem;
+    color: var(--rust); margin-bottom: 1.2rem;
   }
-  .about-eyebrow::before { content: ''; display: block; width: 20px; height: 1px; background: var(--gold); }
+  .about-eyebrow::before { content: ''; display: block; width: 20px; height: 1px; background: var(--rust); }
   .about-title {
     font-family: var(--serif); font-size: clamp(1.7rem,2.8vw,2.6rem); font-weight: 600;
     line-height: 1.18; margin-bottom: 1.5rem;
   }
-  .about-title em { font-style: italic; color: var(--sky); }
+  .about-title em { font-style: italic; color: var(--spruce); }
   .about-text p {
     font-size: 0.92rem; font-weight: 400; line-height: 1.75;
     color: var(--soft); margin-bottom: 0.9rem; max-width: 420px;
@@ -363,9 +368,9 @@
   .contact-eyebrow {
     display: flex; align-items: center; gap: 0.75rem;
     font-size: 0.68rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase;
-    color: var(--gold); margin-bottom: 1rem;
+    color: var(--sky); margin-bottom: 1rem;
   }
-  .contact-eyebrow::before { content: ''; display: block; width: 20px; height: 1px; background: var(--gold); }
+  .contact-eyebrow::before { content: ''; display: block; width: 20px; height: 1px; background: var(--sky); }
   .contact-title {
     font-family: var(--serif); font-size: clamp(1.7rem,2.8vw,2.6rem); font-weight: 600;
     line-height: 1.18; margin-bottom: 1rem;
@@ -714,6 +719,7 @@
 
 </body>
 </html>
+
 
 
 
