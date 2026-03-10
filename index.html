@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,18 +11,16 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    /* Alberta palette:
-       sky at dusk, prairie gold, mountain slate, spruce shadow */
-    --bg:        #F6F3EC;       /* sun-bleached paper */
-    --ink:       #1E2028;       /* midnight prairie sky */
-    --soft:      #6B6E78;       /* distant mountain haze */
-    --line:      #DDD9CF;       /* dry grass */
-    --warm:      #EDE8DC;       /* golden hour field */
-    --sky:       #3B5068;       /* foothills dusk sky */
-    --gold:      #C49A3C;       /* canola field / autumn aspen */
-    --rust:      #A85C38;       /* badlands clay */
-    --spruce:    #2E4038;       /* spruce tree shadow */
-    --stone:     #8C8880;       /* rocky mountain shale */
+    --bg:        #F6F3EC;
+    --ink:       #1E2028;
+    --soft:      #6B6E78;
+    --line:      #DDD9CF;
+    --warm:      #EDE8DC;
+    --sky:       #3B5068;
+    --gold:      #C49A3C;
+    --rust:      #A85C38;
+    --spruce:    #2E4038;
+    --stone:     #8C8880;
     --serif:     'Lora', Georgia, serif;
     --sans:      'IBM Plex Sans', sans-serif;
   }
@@ -47,7 +43,13 @@
     background-size: 180px;
   }
 
-  img  { display: block; width: 100%; height: 100%; object-fit: cover; }
+  /* Images: contain by default — no cropping */
+  img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
   a    { color: inherit; text-decoration: none; }
 
   /* ── NAV ── */
@@ -113,7 +115,6 @@
     position: relative;
   }
 
-  /* Vertical location tag */
   .hero-location {
     position: absolute; left: -0.5rem; top: 50%; transform: translateY(-50%) rotate(-90deg);
     font-size: 0.62rem; font-weight: 500; letter-spacing: 0.25em; text-transform: uppercase;
@@ -155,8 +156,8 @@
   .hero-right {
     position: relative; overflow: hidden;
     background: var(--spruce);
+    display: flex; align-items: center; justify-content: center;
   }
-  /* Mountain horizon line watermark */
   .hero-right::before {
     content: '';
     position: absolute; bottom: 0; left: 0; right: 0;
@@ -164,15 +165,18 @@
     background: linear-gradient(to top, rgba(30,32,40,0.55), transparent);
     z-index: 2; pointer-events: none;
   }
-  .hero-right img { transition: transform 8s ease; }
+  /* Hero image: cover is fine here — it's a full-bleed decorative panel */
+  .hero-right img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 8s ease;
+  }
   .hero-right:hover img { transform: scale(1.03); }
   .hero-caption {
     position: absolute; bottom: 1.8rem; left: 2rem; z-index: 3;
     font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase;
     color: rgba(246,243,236,0.55);
   }
-
-  /* Coordinates tag */
   .hero-coords {
     position: absolute; bottom: 1.8rem; right: 2rem; z-index: 3;
     font-size: 0.6rem; letter-spacing: 0.12em;
@@ -194,8 +198,6 @@
     color: rgba(246,243,236,0.45); flex-shrink: 0;
   }
 
-
-
   /* ── SECTION HEADER ── */
   .sec-head {
     display: flex; align-items: baseline; justify-content: space-between;
@@ -214,17 +216,20 @@
   /* ── GALLERY ── */
   .gallery { padding: 0 3.5rem 6rem; }
 
+  /* Featured grid: rows are auto-sized to the image content */
   .gallery-featured {
     display: grid;
     grid-template-columns: 1.35fr 1fr 1fr;
-    grid-template-rows: 400px 260px;
-    gap: 8px; margin-bottom: 8px;
+    gap: 8px;
+    margin-bottom: 8px;
   }
+  /* Main feature spans 2 rows still but height adapts */
   .gf-main { grid-row: 1 / 3; }
 
   .gitem {
     overflow: hidden; background: var(--warm);
     position: relative; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
   }
   .gitem::after {
     content: ''; position: absolute; inset: 0;
@@ -232,7 +237,15 @@
     opacity: 0; transition: opacity 0.4s;
   }
   .gitem:hover::after { opacity: 1; }
-  .gitem img { transition: transform 0.8s ease, filter 0.5s; filter: saturate(0.88) brightness(0.97); }
+
+  /* Gallery images: contain so nothing is cropped */
+  .gitem img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    transition: transform 0.8s ease, filter 0.5s;
+    filter: saturate(0.88) brightness(0.97);
+  }
   .gitem:hover img { transform: scale(1.04); filter: saturate(1.05) brightness(1); }
   .gitem-tag {
     position: absolute; bottom: 1.2rem; left: 1.4rem; z-index: 2;
@@ -241,13 +254,21 @@
   }
   .gitem:hover .gitem-tag { color: rgba(246,243,236,0.8); }
 
+  /* Gallery row: each cell grows to fit its image */
   .gallery-row {
     display: grid; grid-template-columns: repeat(4,1fr); gap: 8px;
   }
   .grow {
-    aspect-ratio: 3/4; overflow: hidden; background: var(--warm); cursor: pointer; position: relative;
+    overflow: hidden; background: var(--warm); cursor: pointer; position: relative;
+    display: flex; align-items: center; justify-content: center;
   }
-  .grow img { transition: transform 0.7s ease, filter 0.5s; filter: saturate(0.82) brightness(0.96); }
+  .grow img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    transition: transform 0.7s ease, filter 0.5s;
+    filter: saturate(0.82) brightness(0.96);
+  }
   .grow:hover img { transform: scale(1.06); filter: saturate(1.05) brightness(1.02); }
 
   /* ── PRINTS ── */
@@ -256,7 +277,6 @@
     padding: 5rem 3.5rem; border-top: 1px solid rgba(255,255,255,0.06);
     position: relative; overflow: hidden;
   }
-  /* Faint mountain silhouette */
   .prints::before {
     content: '';
     position: absolute; bottom: 0; left: 0; right: 0; height: 180px;
@@ -283,8 +303,21 @@
   .prints-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; position: relative; z-index: 1; }
 
   .pcard { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); }
-  .pcard-img { aspect-ratio: 4/5; overflow: hidden; background: rgba(255,255,255,0.06); position: relative; }
-  .pcard-img img { transition: transform 0.6s ease, filter 0.4s; filter: saturate(0.8); }
+
+  /* Print card image area: no fixed aspect-ratio, fits the image */
+  .pcard-img {
+    overflow: hidden;
+    background: rgba(255,255,255,0.06);
+    position: relative;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .pcard-img img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    transition: transform 0.6s ease, filter 0.4s;
+    filter: saturate(0.8);
+  }
   .pcard:hover .pcard-img img { transform: scale(1.04); filter: saturate(1); }
   .pcard-ed {
     position: absolute; top: 1rem; right: 1rem;
@@ -318,10 +351,19 @@
     padding: 5.5rem 3.5rem;
     display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center;
   }
-  .about-img { aspect-ratio: 4/5; overflow: hidden; background: var(--warm); position: relative; }
-  .about-img img { filter: saturate(0.82) brightness(0.97); transition: filter 0.5s; }
+
+  /* About image: contains the photo, no cropping */
+  .about-img {
+    overflow: hidden; background: var(--warm); position: relative;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .about-img img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    filter: saturate(0.82) brightness(0.97); transition: filter 0.5s;
+  }
   .about-img:hover img { filter: saturate(1) brightness(1); }
-  /* Subtle frame effect */
   .about-img-wrap { position: relative; }
   .about-img-wrap::after {
     content: '';
@@ -358,7 +400,6 @@
     background: var(--warm); padding: 5rem 3.5rem;
     border-top: 1px solid var(--line); position: relative; overflow: hidden;
   }
-  /* Prairie horizon line */
   .contact::after {
     content: '';
     position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
@@ -401,11 +442,10 @@
     position: absolute; inset: -15% 0;
     will-change: transform;
   }
-  .parallax-wrap .ph,
   .parallax-wrap img {
     width: 100%; height: 100%;
+    object-fit: cover; /* hero bg panel — cover is intentional */
   }
-
 
   .reveal {
     opacity: 0; transform: translateY(20px);
@@ -413,10 +453,15 @@
   }
   .reveal.vis { opacity: 1; transform: none; }
 
-  /* ── PLACEHOLDER TILES ── */
+  /* ── PLACEHOLDER / WRAPPER DIVS ── */
+  /* .ph no longer forces dimensions — it just passes through */
   .ph {
-    width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;
-    font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase;
+    width: 100%;
+  }
+  .ph img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
   }
 
   /* ── RESPONSIVE ── */
@@ -429,7 +474,7 @@
 
     .sec-head { padding: 4rem 2rem 2rem; }
     .gallery { padding: 0 2rem 4rem; }
-    .gallery-featured { grid-template-columns: 1fr 1fr; grid-template-rows: 280px 200px 200px; }
+    .gallery-featured { grid-template-columns: 1fr 1fr; }
     .gf-main { grid-column: 1/3; grid-row: 1/2; }
     .gallery-row { grid-template-columns: 1fr 1fr; }
     .prints { padding: 5rem 2rem; }
@@ -493,9 +538,7 @@
 
   <div class="hero-right">
     <div class="parallax-wrap" id="parallaxWrap">
-      <div class="ph">
-        <img src="images/hero.jpg" alt="Hero" loading="eager">
-      </div>
+      <img src="images/hero.jpg" alt="Hero" loading="eager">
     </div>
     <div class="hero-caption">Alberta, Canada</div>
     <div class="hero-coords">51.0447° N, 114.0719° W</div>
@@ -551,7 +594,6 @@
       <div class="grow"><div class="ph"><img src="images/photo-6.jpg" alt="" loading="lazy"></div></div>
       <div class="grow"><div class="ph"><img src="images/photo-7.jpg" alt="" loading="lazy"></div></div>
       <div class="grow"><div class="ph"><img src="images/photo-8.jpg" alt="" loading="lazy"></div></div>
-
       <div class="grow"><div class="ph"><img src="images/photo-9.jpg" alt="" loading="lazy"></div></div>
     </div>
   </div>
@@ -570,7 +612,7 @@
   <div class="prints-grid">
     <div class="pcard">
       <div class="pcard-img">
-        <div class="ph"><img src="images/print-1.jpg" alt="" loading="lazy"></div>
+        <img src="images/print-1.jpg" alt="" loading="lazy">
         <span class="pcard-ed">Ed. of 25</span>
       </div>
       <div class="pcard-body">
@@ -587,7 +629,7 @@
 
     <div class="pcard">
       <div class="pcard-img">
-        <div class="ph"><img src="images/print-2.jpg" alt="" loading="lazy"></div>
+        <img src="images/print-2.jpg" alt="" loading="lazy">
         <span class="pcard-ed">Ed. of 10</span>
       </div>
       <div class="pcard-body">
@@ -604,7 +646,7 @@
 
     <div class="pcard">
       <div class="pcard-img">
-        <div class="ph"><img src="images/print-3.jpg" alt="" loading="lazy"></div>
+        <img src="images/print-3.jpg" alt="" loading="lazy">
         <span class="pcard-ed" style="color:rgba(246,243,236,0.3)">Sold out</span>
       </div>
       <div class="pcard-body">
@@ -624,7 +666,7 @@
 <section id="about" class="about">
   <div class="about-img-wrap reveal">
     <div class="about-img">
-      <div class="ph"><img src="images/about.jpg" alt="Brandon Deurbrouck" loading="lazy"></div>
+      <img src="images/about.jpg" alt="Brandon Deurbrouck" loading="lazy">
     </div>
   </div>
 
@@ -661,7 +703,7 @@
 </footer>
 
 <script>
-  // ── NAV SCROLL ──
+  // ── PARALLAX ──
   const parallaxWrap = document.getElementById('parallaxWrap');
   const heroRight    = parallaxWrap ? parallaxWrap.closest('.hero-right') : null;
 
@@ -670,9 +712,8 @@
     const rect   = heroRight.getBoundingClientRect();
     const center = rect.top + rect.height / 2;
     const vhalf  = window.innerHeight / 2;
-    // progress: -1 (above viewport) to +1 (below)
     const progress = (vhalf - center) / window.innerHeight;
-    const shift    = progress * 80; // px travel — tweak for more/less effect
+    const shift    = progress * 80;
     parallaxWrap.style.transform = `translateY(${shift}px)`;
   }
 
@@ -719,9 +760,3 @@
 
 </body>
 </html>
-
-
-
-
-
-
