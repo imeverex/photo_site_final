@@ -656,20 +656,47 @@
 </footer>
 
 <script>
+  // ── SMOOTH SCROLL WITH EASING ──
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', e => {
+      const target = document.querySelector(link.getAttribute('href'));
+      if (!target) return;
+      e.preventDefault();
 
-  // ── NAV SCROLL ──
+      const startY    = window.scrollY;
+      const endY      = target.getBoundingClientRect().top + window.scrollY - 70; // 70px offset for fixed nav
+      const distance  = endY - startY;
+      const duration  = Math.min(Math.max(Math.abs(distance) * 0.4, 500), 1200); // scale with distance, 500–1200ms
+      let startTime   = null;
+
+      function easeInOutQuart(t) {
+        return t < 0.5 ? 8 * t * t * t * t : 1 - Math.pow(-2 * t + 2, 4) / 2;
+      }
+
+      function step(timestamp) {
+        if (!startTime) startTime = timestamp;
+        const elapsed  = timestamp - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        window.scrollTo(0, startY + distance * easeInOutQuart(progress));
+        if (progress < 1) requestAnimationFrame(step);
+      }
+
+      requestAnimationFrame(step);
+      closeMob(); // close mobile menu if open
+    });
+  });
+
+  // ── PARALLAX ──
   const parallaxWrap = document.getElementById('parallaxWrap');
   const heroRight    = parallaxWrap ? parallaxWrap.closest('.hero-right') : null;
 
   function updateParallax() {
     if (!parallaxWrap || !heroRight) return;
-    const rect   = heroRight.getBoundingClientRect();
-    const center = rect.top + rect.height / 2;
-    const vhalf  = window.innerHeight / 2;
-    // progress: -1 (above viewport) to +1 (below)
+    const rect     = heroRight.getBoundingClientRect();
+    const center   = rect.top + rect.height / 2;
+    const vhalf    = window.innerHeight / 2;
     const progress = (vhalf - center) / window.innerHeight;
-    const shift    = progress * 80; // px travel — tweak for more/less effect
-    parallaxWrap.style.transform = `translateY(${shift}px)`;
+    parallaxWrap.style.transform = `translateY(${progress * 80}px)`;
   }
 
   window.addEventListener('scroll', updateParallax, { passive: true });
@@ -715,3 +742,4 @@
 
 </body>
 </html>
+
