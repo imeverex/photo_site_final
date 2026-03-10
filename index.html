@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,500;1,600&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+/*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
     /* Alberta palette:
@@ -446,7 +448,7 @@
 </head>
 <body>
 
-<!-- NAV -->
+<!-- NAVIGATION -->
 <nav class="nav" id="nav">
   <a href="#" class="nav-logo">Brandon Deurbrouck</a>
   <div class="nav-links">
@@ -456,57 +458,58 @@
     <a href="#contact">Contact</a>
   </div>
   <button class="hamburger" id="hamburger" aria-label="Menu">
-    <div class="ham-line"></div><div class="ham-line"></div><div class="ham-line"></div>
+    <div class="ham-line"></div>
+    <div class="ham-line"></div>
+    <div class="ham-line"></div>
   </button>
 </nav>
 
 <!-- MOBILE MENU -->
 <div class="mob-menu" id="mobMenu">
   <a href="#gallery" onclick="closeMob()">Work</a>
-  <a href="#prints"  onclick="closeMob()">Prints</a>
-  <a href="#about"   onclick="closeMob()">About</a>
+  <a href="#prints" onclick="closeMob()">Prints</a>
+  <a href="#about" onclick="closeMob()">About</a>
   <a href="#contact" onclick="closeMob()">Contact</a>
 </div>
 
-<!-- HERO -->
+<!-- HERO SECTION -->
 <section class="hero">
   <div class="hero-left">
     <div class="hero-eyebrow">Photographer & Visual Artist</div>
-    <h1 class="hero-title">
-      Stars, cities,<br>
-      <em>and everything between.</em>
-    </h1>
+    <h1 class="hero-title">Stars, cities,<br><em>and everything between.</em></h1>
     <p class="hero-body">
       Alberta doesn't give you one thing to photograph. It gives you everything — and I'm not picking a favourite.
     </p>
     <div class="hero-links">
       <a href="#gallery" class="link-primary">Explore the work</a>
-      <a href="#prints"  class="link-secondary">Shop prints →</a>
+      <a href="#prints" class="link-secondary">Shop prints →</a>
     </div>
   </div>
+
   <div class="hero-right">
     <div class="parallax-wrap" id="parallaxWrap">
-      <div class="ph" style=""><img src="images/hero.jpg" alt="Hero" loading="eager">
+      <div class="ph">
+        <img src="images/hero.jpg" alt="Hero" loading="eager">
+      </div>
     </div>
     <div class="hero-caption">Alberta, Canada</div>
     <div class="hero-coords">51.0447° N, 114.0719° W</div>
   </div>
 </section>
 
-<!-- BAND -->
+<!-- BAND SECTION -->
 <div class="band">
   <span class="band-quote">"Stars, lakes, and city lights — Alberta doesn't let you get bored."</span>
   <span class="band-place">Calgary · Alberta · Canada</span>
 </div>
 
-
-
-<!-- GALLERY -->
+<!-- GALLERY SECTION -->
 <div id="gallery">
   <div class="sec-head reveal">
     <h2 class="sec-title">Selected Work</h2>
     <a href="#" class="sec-link">View all →</a>
   </div>
+
   <div class="gallery reveal" style="transition-delay:0.1s">
     <div class="gallery-featured">
       <div class="gitem gf-main">
@@ -514,33 +517,42 @@
         <span class="gitem-tag">Portrait</span>
       </div>
       <div class="gitem">
-        <div class="ph" style=""><img src="images/photo-2.jpg" alt="" loading="lazy">
+        <div class="ph">
+          <img src="images/photo-2.jpg" alt="Landscape" loading="lazy">
+        </div>
         <span class="gitem-tag">Landscape</span>
       </div>
       <div class="gitem">
-        <div class="ph" style=""><img src="images/photo-3.jpg" alt="" loading="lazy">
+        <div class="ph">
+          <img src="images/photo-3.jpg" alt="Golden Hour" loading="lazy">
+        </div>
         <span class="gitem-tag">Golden Hour</span>
       </div>
       <div class="gitem">
-        <div class="ph" style=""><img src="images/photo-4.jpg" alt="" loading="lazy">
+        <div class="ph">
+          <img src="images/photo-4.jpg" alt="Badlands" loading="lazy">
+        </div>
         <span class="gitem-tag">Badlands</span>
       </div>
       <div class="gitem">
-        <div class="ph" style=""><img src="images/photo-5.jpg" alt="" loading="lazy">
+        <div class="ph">
+          <img src="images/photo-5.jpg" alt="Forest" loading="lazy">
+        </div>
         <span class="gitem-tag">Forest</span>
       </div>
     </div>
 
     <div class="gallery-row" style="margin-top:8px">
-      <div class="grow"><div class="ph" style=""><img src="images/photo-6.jpg" alt="" loading="lazy"></div>
-      <div class="grow"><div class="ph" style=""><img src="images/photo-7.jpg" alt="" loading="lazy"></div>
-      <div class="grow"><div class="ph" style=""><img src="images/photo-8.jpg" alt="" loading="lazy"></div>
-      <div class="grow"><div class="ph" style=""><img src="images/photo-9.jpg" alt="" loading="lazy"></div>
+      <div class="grow"><div class="ph"><img src="images/photo-6.jpg" alt="" loading="lazy"></div></div>
+      <div class="grow"><div class="ph"><img src="images/photo-7.jpg" alt="" loading="lazy"></div></div>
+      <div class="grow"><div class="ph"><img src="images/photo-8.jpg" alt="" loading="lazy"></div></div>
+
+      <div class="grow"><div class="ph"><img src="images/photo-9.jpg" alt="" loading="lazy"></div></div>
     </div>
   </div>
 </div>
 
-<!-- PRINTS -->
+<!-- PRINTS SECTION -->
 <section id="prints" class="prints reveal">
   <div class="prints-top">
     <div>
@@ -549,11 +561,11 @@
     </div>
     <p class="prints-body">A small selection of my favourite frames — available as museum-quality Giclée prints on archival paper. Each one is limited edition, signed and numbered by hand.</p>
   </div>
-  <div class="prints-grid">
 
+  <div class="prints-grid">
     <div class="pcard">
       <div class="pcard-img">
-        <div class="ph" style=""><img src="images/print-1.jpg" alt="" loading="lazy">
+        <div class="ph"><img src="images/print-1.jpg" alt="" loading="lazy"></div>
         <span class="pcard-ed">Ed. of 25</span>
       </div>
       <div class="pcard-body">
@@ -570,7 +582,7 @@
 
     <div class="pcard">
       <div class="pcard-img">
-        <div class="ph" style=""><img src="images/print-2.jpg" alt="" loading="lazy">
+        <div class="ph"><img src="images/print-2.jpg" alt="" loading="lazy"></div>
         <span class="pcard-ed">Ed. of 10</span>
       </div>
       <div class="pcard-body">
@@ -587,7 +599,7 @@
 
     <div class="pcard">
       <div class="pcard-img">
-        <div class="ph" style=""><img src="images/print-3.jpg" alt="" loading="lazy">
+        <div class="ph"><img src="images/print-3.jpg" alt="" loading="lazy"></div>
         <span class="pcard-ed" style="color:rgba(246,243,236,0.3)">Sold out</span>
       </div>
       <div class="pcard-body">
@@ -600,17 +612,17 @@
         <a href="#" class="pcard-btn pcard-btn-sold">Sold out</a>
       </div>
     </div>
-
   </div>
 </section>
 
-<!-- ABOUT -->
+<!-- ABOUT SECTION -->
 <section id="about" class="about">
   <div class="about-img-wrap reveal">
     <div class="about-img">
-      <div class="ph" style=""><img src="images/about.jpg" alt="Brandon Deurbrouck" loading="lazy">
+      <div class="ph"><img src="images/about.jpg" alt="Brandon Deurbrouck" loading="lazy"></div>
     </div>
   </div>
+
   <div class="reveal" style="transition-delay:0.15s">
     <div class="about-eyebrow">About</div>
     <h2 class="about-title">Hi, I'm Brandon —<br><em>I capture everything.</em></h2>
@@ -623,7 +635,7 @@
   </div>
 </section>
 
-<!-- CONTACT -->
+<!-- CONTACT SECTION -->
 <section id="contact" class="contact reveal">
   <div class="contact-inner">
     <div class="contact-eyebrow">Get in touch</div>
@@ -632,7 +644,7 @@
     <a href="mailto:hello@brandondeurbrouck.com" class="contact-email">hello@brandondeurbrouck.com</a>
     <div class="contact-socials">
       <a href="https://instagram.com" target="_blank">Instagram ↗</a>
-      <a href="https://linkedin.com"  target="_blank">LinkedIn ↗</a>
+      <a href="https://linkedin.com" target="_blank">LinkedIn ↗</a>
     </div>
   </div>
 </section>
@@ -644,6 +656,7 @@
 </footer>
 
 <script>
+
   // ── NAV SCROLL ──
   const parallaxWrap = document.getElementById('parallaxWrap');
   const heroRight    = parallaxWrap ? parallaxWrap.closest('.hero-right') : null;
@@ -699,5 +712,6 @@
   // ── YEAR ──
   document.getElementById('yr').textContent = new Date().getFullYear();
 </script>
+
 </body>
 </html>
