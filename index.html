@@ -75,12 +75,12 @@
   .nav.scrolled .ham-line { background: var(--bg); }
   .nav-links { display: flex; gap: 2.5rem; align-items: center; }
   .nav-links a {
-    font-size: 0.8rem; font-weight: 400; letter-spacing: 0.07em;
+    font-size: 0.9rem; font-weight: 400; letter-spacing: 0.07em;
     color: var(--soft); transition: color 0.2s;
   }
   .nav-links a:hover { color: var(--ink); }
   .nav-prints-link {
-    font-size: 0.78rem; font-weight: 500; letter-spacing: 0.08em;
+    font-size: 0.88rem; font-weight: 500; letter-spacing: 0.08em;
     color: var(--sky); border-bottom: 1px solid rgba(59,80,104,0.3);
     padding-bottom: 1px; transition: border-color 0.2s, color 0.2s;
   }
@@ -124,7 +124,7 @@
 
   .hero-eyebrow {
     display: flex; align-items: center; gap: 0.75rem;
-    font-size: 0.7rem; font-weight: 500; letter-spacing: 0.2em;
+    font-size: 0.82rem; font-weight: 500; letter-spacing: 0.2em;
     text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem;
   }
   .hero-eyebrow::before {
@@ -139,18 +139,18 @@
   .hero-title em { font-style: italic; color: var(--sky); display: block; }
 
   .hero-body {
-    font-size: 0.92rem; font-weight: 400; line-height: 1.65;
+    font-size: 1.05rem; font-weight: 400; line-height: 1.65;
     color: var(--soft); max-width: 320px; margin-bottom: 2rem;
   }
 
   .hero-links { display: flex; align-items: center; gap: 2rem; }
   .link-primary {
-    font-size: 0.8rem; font-weight: 500; letter-spacing: 0.1em;
+    font-size: 0.92rem; font-weight: 500; letter-spacing: 0.1em;
     color: var(--ink); border-bottom: 1.5px solid var(--gold);
     padding-bottom: 2px; transition: color 0.2s;
   }
   .link-primary:hover { color: var(--gold); }
-  .link-secondary { font-size: 0.8rem; font-weight: 400; color: var(--soft); transition: color 0.2s; }
+  .link-secondary { font-size: 0.92rem; font-weight: 400; color: var(--soft); transition: color 0.2s; }
   .link-secondary:hover { color: var(--sky); }
 
   .hero-right {
@@ -174,12 +174,12 @@
   .hero-right:hover img { transform: scale(1.03); }
   .hero-caption {
     position: absolute; bottom: 1.8rem; left: 2rem; z-index: 3;
-    font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase;
+    font-size: 0.78rem; letter-spacing: 0.15em; text-transform: uppercase;
     color: rgba(246,243,236,0.55);
   }
   .hero-coords {
     position: absolute; bottom: 1.8rem; right: 2rem; z-index: 3;
-    font-size: 0.6rem; letter-spacing: 0.12em;
+    font-size: 0.74rem; letter-spacing: 0.12em;
     color: rgba(246,243,236,0.4); font-family: var(--sans);
   }
 
@@ -194,7 +194,7 @@
     color: rgba(246,243,236,0.85); font-weight: 400;
   }
   .band-place {
-    font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase;
+    font-size: 0.8rem; letter-spacing: 0.22em; text-transform: uppercase;
     color: rgba(246,243,236,0.45); flex-shrink: 0;
   }
 
@@ -210,7 +210,7 @@
   .sec-title::before {
     content: ''; display: block; width: 20px; height: 1px; background: var(--sky);
   }
-  .sec-link { font-size: 0.75rem; letter-spacing: 0.08em; color: var(--soft); transition: color 0.2s; }
+  .sec-link { font-size: 0.88rem; letter-spacing: 0.08em; color: var(--soft); transition: color 0.2s; }
   .sec-link:hover { color: var(--ink); }
 
   /* ── GALLERY ── */
@@ -249,7 +249,7 @@
   .gitem:hover img { transform: scale(1.04); filter: saturate(1.05) brightness(1); }
   .gitem-tag {
     position: absolute; bottom: 1.2rem; left: 1.4rem; z-index: 2;
-    font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase;
+    font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase;
     color: rgba(246,243,236,0); transition: color 0.3s; font-weight: 500;
   }
   .gitem:hover .gitem-tag { color: rgba(246,243,236,0.8); }
@@ -289,7 +289,7 @@
   }
   .prints-eyebrow {
     display: flex; align-items: center; gap: 0.75rem;
-    font-size: 0.68rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase;
+    font-size: 0.8rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase;
     color: var(--gold); margin-bottom: 1rem;
   }
   .prints-eyebrow::before { content: ''; display: block; width: 20px; height: 1px; background: var(--gold); }
@@ -298,7 +298,7 @@
     color: var(--bg); line-height: 1.2;
   }
   .prints-title em { font-style: italic; color: var(--rust); }
-  .prints-body { font-size: 0.9rem; font-weight: 300; line-height: 1.85; color: rgba(246,243,236,0.55); }
+  .prints-body { font-size: 1rem; font-weight: 300; line-height: 1.85; color: rgba(246,243,236,0.55); }
 
   .prints-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; position: relative; z-index: 1; }
 
@@ -321,30 +321,43 @@
   .pcard:hover .pcard-img img { transform: scale(1.04); filter: saturate(1); }
   .pcard-ed {
     position: absolute; top: 1rem; right: 1rem;
-    font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase;
+    font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase;
     color: rgba(246,243,236,0.7); background: rgba(30,32,40,0.65);
-    padding: 0.22rem 0.55rem; backdrop-filter: blur(4px);
+    padding: 0.28rem 0.6rem; backdrop-filter: blur(4px);
   }
   .pcard-body { padding: 1.2rem 1.3rem 1.5rem; }
-  .pcard-name { font-family: var(--serif); font-size: 1rem; font-weight: 400; color: var(--bg); margin-bottom: 0.25rem; }
+  .pcard-name { font-family: var(--serif); font-size: 1.1rem; font-weight: 400; color: var(--bg); margin-bottom: 0.25rem; }
   .pcard-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
-  .pcard-price { font-size: 0.8rem; font-weight: 400; color: rgba(246,243,236,0.45); }
+  .pcard-price { font-size: 0.95rem; font-weight: 500; color: rgba(246,243,236,0.65); }
   .pcard-sizes { display: flex; gap: 0.4rem; margin-bottom: 1.2rem; flex-wrap: wrap; }
   .sz {
-    font-size: 0.6rem; letter-spacing: 0.08em; color: rgba(246,243,236,0.45);
-    border: 1px solid rgba(255,255,255,0.12); padding: 0.22rem 0.5rem;
+    font-size: 0.75rem; letter-spacing: 0.08em; color: rgba(246,243,236,0.55);
+    border: 1px solid rgba(255,255,255,0.18); padding: 0.35rem 0.65rem;
     cursor: pointer; background: none; font-family: var(--sans);
-    transition: border-color 0.2s, color 0.2s;
+    transition: border-color 0.2s, color 0.2s, background 0.2s;
   }
-  .sz:hover, .sz.on { border-color: var(--gold); color: var(--gold); }
+  .sz:hover, .sz.on { border-color: var(--gold); color: var(--gold); background: rgba(196,154,60,0.08); }
   .pcard-btn {
     display: block; width: 100%; text-align: center;
-    font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em;
-    padding: 0.8rem; border: 1px solid rgba(196,154,60,0.5); color: var(--gold);
-    transition: background 0.2s, border-color 0.2s;
+    font-size: 0.9rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 1rem 1.2rem;
+    background: var(--gold);
+    color: var(--ink);
+    border: none;
+    transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+    box-shadow: 0 2px 12px rgba(196,154,60,0.25);
   }
-  .pcard-btn:hover { background: rgba(196,154,60,0.1); border-color: var(--gold); }
-  .pcard-btn-sold { border-color: rgba(255,255,255,0.08); color: rgba(246,243,236,0.25); pointer-events: none; }
+  .pcard-btn:hover {
+    background: #d4a942;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(196,154,60,0.4);
+  }
+  .pcard-btn-sold {
+    background: rgba(255,255,255,0.05);
+    color: rgba(246,243,236,0.25);
+    pointer-events: none;
+    box-shadow: none;
+  }
 
   /* ── ABOUT ── */
   .about {
@@ -373,7 +386,7 @@
 
   .about-eyebrow {
     display: flex; align-items: center; gap: 0.75rem;
-    font-size: 0.68rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase;
+    font-size: 0.8rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase;
     color: var(--rust); margin-bottom: 1.2rem;
   }
   .about-eyebrow::before { content: ''; display: block; width: 20px; height: 1px; background: var(--rust); }
@@ -383,12 +396,12 @@
   }
   .about-title em { font-style: italic; color: var(--spruce); }
   .about-text p {
-    font-size: 0.92rem; font-weight: 400; line-height: 1.75;
+    font-size: 1rem; font-weight: 400; line-height: 1.75;
     color: var(--soft); margin-bottom: 0.9rem; max-width: 420px;
   }
   .about-location {
     display: inline-flex; align-items: center; gap: 0.5rem;
-    font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase;
+    font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase;
     color: var(--stone); margin-top: 1rem;
   }
   .about-location::before {
@@ -408,7 +421,7 @@
   .contact-inner { max-width: 580px; }
   .contact-eyebrow {
     display: flex; align-items: center; gap: 0.75rem;
-    font-size: 0.68rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase;
+    font-size: 0.8rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase;
     color: var(--sky); margin-bottom: 1rem;
   }
   .contact-eyebrow::before { content: ''; display: block; width: 20px; height: 1px; background: var(--sky); }
@@ -416,7 +429,7 @@
     font-family: var(--serif); font-size: clamp(1.7rem,2.8vw,2.6rem); font-weight: 600;
     line-height: 1.18; margin-bottom: 1rem;
   }
-  .contact-body { font-size: 0.92rem; font-weight: 400; line-height: 1.75; color: var(--soft); margin-bottom: 2rem; }
+  .contact-body { font-size: 1rem; font-weight: 400; line-height: 1.75; color: var(--soft); margin-bottom: 2rem; }
   .contact-email {
     display: inline-block; font-family: var(--serif); font-style: italic;
     font-size: clamp(1.1rem,1.8vw,1.5rem);
@@ -426,7 +439,7 @@
   }
   .contact-email:hover { color: var(--ink); border-color: var(--ink); }
   .contact-socials { display: flex; gap: 1.5rem; }
-  .contact-socials a { font-size: 0.75rem; letter-spacing: 0.1em; color: var(--soft); transition: color 0.2s; }
+  .contact-socials a { font-size: 0.88rem; letter-spacing: 0.1em; color: var(--soft); transition: color 0.2s; }
   .contact-socials a:hover { color: var(--ink); }
 
   /* ── FOOTER ── */
@@ -435,7 +448,7 @@
     display: flex; align-items: center; justify-content: space-between;
   }
   .footer-logo { font-family: var(--serif); font-size: 0.95rem; font-weight: 400; color: var(--bg); }
-  .footer-right { font-size: 0.68rem; letter-spacing: 0.1em; color: rgba(246,243,236,0.35); }
+  .footer-right { font-size: 0.8rem; letter-spacing: 0.1em; color: rgba(246,243,236,0.35); }
 
   /* ── PARALLAX ── */
   .parallax-wrap {
@@ -494,6 +507,43 @@
     .prints-grid { grid-template-columns: 1fr; }
     .gallery-row { grid-template-columns: 1fr 1fr; }
   }
+  /* ── LIGHTBOX ── */
+  .lightbox {
+    position: fixed; inset: 0; z-index: 10000;
+    background: rgba(10,10,12,0.96);
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; pointer-events: none;
+    transition: opacity 0.3s ease;
+    cursor: zoom-out;
+  }
+  .lightbox.open { opacity: 1; pointer-events: all; }
+  .lightbox-img-wrap {
+    max-width: 92vw; max-height: 92vh;
+    display: flex; align-items: center; justify-content: center;
+    transform: scale(0.94);
+    transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1);
+  }
+  .lightbox.open .lightbox-img-wrap { transform: scale(1); }
+  .lightbox-img-wrap img {
+    max-width: 92vw; max-height: 92vh;
+    width: auto; height: auto;
+    object-fit: contain;
+    box-shadow: 0 30px 90px rgba(0,0,0,0.7);
+    display: block;
+  }
+  .lightbox-close {
+    position: absolute; top: 1.5rem; right: 1.8rem;
+    font-size: 2rem; color: rgba(246,243,236,0.7);
+    background: none; border: none; cursor: pointer;
+    line-height: 1; transition: color 0.2s, transform 0.2s;
+    z-index: 1;
+  }
+  .lightbox-close:hover { color: var(--gold); transform: rotate(90deg); }
+  .lightbox-caption {
+    position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+    font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase;
+    color: rgba(246,243,236,0.4);
+  }
 </style>
 </head>
 <body>
@@ -538,7 +588,7 @@
 
   <div class="hero-right">
     <div class="parallax-wrap" id="parallaxWrap">
-      <img src="images/hero.jpg" alt="Hero" loading="eager">
+      <img src="../../../Downloads/images/hero.jpg" alt="Hero" loading="eager">
     </div>
     <div class="hero-caption">Alberta, Canada</div>
     <div class="hero-coords">51.0447° N, 114.0719° W</div>
@@ -561,40 +611,40 @@
   <div class="gallery reveal" style="transition-delay:0.1s">
     <div class="gallery-featured">
       <div class="gitem gf-main">
-        <img src="images/photo-1.jpg" alt="Photo 1" loading="lazy">
+        <img src="../../../Downloads/images/photo-1.jpg" alt="Photo 1" loading="lazy">
         <span class="gitem-tag">Portrait</span>
       </div>
       <div class="gitem">
         <div class="ph">
-          <img src="images/photo-2.jpg" alt="Landscape" loading="lazy">
+          <img src="../../../Downloads/images/photo-2.jpg" alt="Landscape" loading="lazy">
         </div>
         <span class="gitem-tag">Landscape</span>
       </div>
       <div class="gitem">
         <div class="ph">
-          <img src="images/photo-3.jpg" alt="Golden Hour" loading="lazy">
+          <img src="../../../Downloads/images/photo-3.jpg" alt="Golden Hour" loading="lazy">
         </div>
         <span class="gitem-tag">Golden Hour</span>
       </div>
       <div class="gitem">
         <div class="ph">
-          <img src="images/photo-4.jpg" alt="Badlands" loading="lazy">
+          <img src="../../../Downloads/images/photo-4.jpg" alt="Badlands" loading="lazy">
         </div>
         <span class="gitem-tag">Badlands</span>
       </div>
       <div class="gitem">
         <div class="ph">
-          <img src="images/photo-5.jpg" alt="Forest" loading="lazy">
+          <img src="../../../Downloads/images/photo-5.jpg" alt="Forest" loading="lazy">
         </div>
         <span class="gitem-tag">Forest</span>
       </div>
     </div>
 
     <div class="gallery-row" style="margin-top:8px">
-      <div class="grow"><div class="ph"><img src="images/photo-6.jpg" alt="" loading="lazy"></div></div>
-      <div class="grow"><div class="ph"><img src="images/photo-7.jpg" alt="" loading="lazy"></div></div>
-      <div class="grow"><div class="ph"><img src="images/photo-8.jpg" alt="" loading="lazy"></div></div>
-      <div class="grow"><div class="ph"><img src="images/photo-9.jpg" alt="" loading="lazy"></div></div>
+      <div class="grow"><div class="ph"><img src="../../../Downloads/images/photo-6.jpg" alt="" loading="lazy"></div></div>
+      <div class="grow"><div class="ph"><img src="../../../Downloads/images/photo-7.jpg" alt="" loading="lazy"></div></div>
+      <div class="grow"><div class="ph"><img src="../../../Downloads/images/photo-8.jpg" alt="" loading="lazy"></div></div>
+      <div class="grow"><div class="ph"><img src="../../../Downloads/images/photo-9.jpg" alt="" loading="lazy"></div></div>
     </div>
   </div>
 </div>
@@ -612,7 +662,7 @@
   <div class="prints-grid">
     <div class="pcard">
       <div class="pcard-img">
-        <img src="images/print-1.jpg" alt="" loading="lazy">
+        <img src="../../../Downloads/images/print-1.jpg" alt="" loading="lazy">
         <span class="pcard-ed">Ed. of 25</span>
       </div>
       <div class="pcard-body">
@@ -629,7 +679,7 @@
 
     <div class="pcard">
       <div class="pcard-img">
-        <img src="images/print-2.jpg" alt="" loading="lazy">
+        <img src="../../../Downloads/images/print-2.jpg" alt="" loading="lazy">
         <span class="pcard-ed">Ed. of 10</span>
       </div>
       <div class="pcard-body">
@@ -646,7 +696,7 @@
 
     <div class="pcard">
       <div class="pcard-img">
-        <img src="images/print-3.jpg" alt="" loading="lazy">
+        <img src="../../../Downloads/images/print-3.jpg" alt="" loading="lazy">
         <span class="pcard-ed" style="color:rgba(246,243,236,0.3)">Sold out</span>
       </div>
       <div class="pcard-body">
@@ -666,7 +716,7 @@
 <section id="about" class="about">
   <div class="about-img-wrap reveal">
     <div class="about-img">
-      <img src="images/about.jpg" alt="Brandon Deurbrouck" loading="lazy">
+      <img src="../../../Downloads/images/about.jpg" alt="Brandon Deurbrouck" loading="lazy">
     </div>
   </div>
 
@@ -688,7 +738,7 @@
     <div class="contact-eyebrow">Get in touch</div>
     <h2 class="contact-title">Let's work together.</h2>
     <p class="contact-body">Commission, print inquiry, or you just want to talk about a lake you found — I'm in.</p>
-    <a href="b.deurbrouck@live.com" class="contact-email">b.deurbrouck@live.com</a>
+    <a href="/cdn-cgi/l/email-protection#fe969b929291be9c8c9f909a91909a9b8b8c9c8c918b9d95d09d9193" class="contact-email"><span class="__cf_email__" data-cfemail="2b434e4747446b49594a454f44454f4e5e594959445e484005484446">[email&#160;protected]</span></a>
     <div class="contact-socials">
       <a href="https://instagram.com/brandondeurbrouck" target="_blank">Instagram ↗</a>
       <a href="https://www.linkedin.com/in/brandon-deurbrouck-346877223/" target="_blank">LinkedIn ↗</a>
@@ -703,7 +753,7 @@
   <span class="footer-right">© <span id="yr"></span> · Calgary, Alberta · www.brandondeurbrouck.com</span>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   // ── PARALLAX ──
   const parallaxWrap = document.getElementById('parallaxWrap');
   const heroRight    = parallaxWrap ? parallaxWrap.closest('.hero-right') : null;
@@ -757,7 +807,56 @@
 
   // ── YEAR ──
   document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // ── LIGHTBOX ──
+  const lightbox      = document.getElementById('lightbox');
+  const lightboxImg   = document.getElementById('lightboxImg');
+  const lightboxCap   = document.getElementById('lightboxCaption');
+  const lightboxClose = document.getElementById('lightboxClose');
+
+  function openLightbox(src, caption) {
+    lightboxImg.src = src;
+    lightboxImg.alt = caption || '';
+    lightboxCap.textContent = caption || '';
+    lightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+    setTimeout(() => { lightboxImg.src = ''; }, 300);
+  }
+
+  // Attach to all gallery images
+  document.querySelectorAll('.gitem img, .grow img, .pcard-img img, .about-img img').forEach(img => {
+    img.style.cursor = 'zoom-in';
+    img.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const tag = img.closest('.gitem')?.querySelector('.gitem-tag')?.textContent
+                || img.closest('.pcard')?.querySelector('.pcard-name')?.textContent
+                || '';
+      openLightbox(img.src, tag);
+    });
+  });
+
+  lightboxClose.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeLightbox();
+  });
+
 </script>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Close">✕</button>
+  <div class="lightbox-img-wrap">
+    <img id="lightboxImg" src="../../../Downloads/print-3" alt="">
+  </div>
+  <div class="lightbox-caption" id="lightboxCaption"></div>
+</div>
 
 </body>
 </html>
