@@ -80,8 +80,8 @@ body::before { content: ''; position: fixed; inset: 0; z-index: 9000; pointer-ev
 .pcard { background: var(--bg2); transition: background .3s; }
 .pcard:hover { background: var(--bg3); }
 .pcard.sold-out { opacity: .65; }
-.pcard-img { overflow: hidden; background: var(--bg3); position: relative; border-bottom: 1px solid var(--line); }
-.pcard-img img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; transition: transform .7s var(--ease); }
+.pcard-img { background: var(--bg3); position: relative; border-bottom: 1px solid var(--line); padding: 1rem; }
+.pcard-img img { width: 100%; height: auto; display: block; transition: transform .7s var(--ease); box-shadow: 0 2px 12px rgba(0,0,0,.35); outline: 1px solid rgba(255,255,255,.08); border: 8px solid #f5f2ee; }
 .pcard:not(.sold-out):hover .pcard-img img { transform: scale(1.04); }
 .pcard-ed { position: absolute; top: 1rem; left: 1rem; font-size: .62rem; letter-spacing: .18em; text-transform: uppercase; color: rgba(240,237,230,.45); background: rgba(12,12,14,.8); padding: .3rem .65rem; border: 1px solid var(--line); }
 .pcard-sold-badge { position: absolute; top: 1rem; right: 1rem; font-size: .6rem; letter-spacing: .18em; text-transform: uppercase; color: var(--rust); background: rgba(12,12,14,.85); padding: .3rem .65rem; border: 1px solid rgba(181,90,52,.3); }
