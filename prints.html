@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prints &#8212; Brandon Deurbrouck</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg: #0C0C0E; --bg2: #111114; --bg3: #161619;
+  --ink: #F0EDE6; --soft: #888891; --line: rgba(240,237,230,0.08);
+  --gold: #C9962E; --gold2: #E8B84B; --rust: #B55A34; --sky: #4A6B8A;
+  --serif: 'Playfair Display', Georgia, serif;
+  --sans: 'DM Sans', sans-serif;
+  --ease: cubic-bezier(0.76, 0, 0.24, 1);
+}
+html { scroll-behavior: smooth; }
+body { font-family: var(--sans); background: var(--bg); color: var(--ink); overflow-x: hidden; cursor: none; }
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; text-decoration: none; }
+button { font-family: var(--sans); }
+
+body::before { content: ''; position: fixed; inset: 0; z-index: 9000; pointer-events: none; opacity: 0.04; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); background-size: 180px; }
+
+.cursor { position: fixed; top: 0; left: 0; z-index: 99999; pointer-events: none; width: 10px; height: 10px; border-radius: 50%; background: var(--gold); transform: translate(-50%, -50%); transition: width .22s var(--ease), height .22s var(--ease), opacity .2s; mix-blend-mode: difference; }
+.cursor.hidden { opacity: 0; }
+.cursor.grow { width: 52px; height: 52px; }
+.cursor-ring { position: fixed; top: 0; left: 0; z-index: 99998; pointer-events: none; width: 38px; height: 38px; border-radius: 50%; border: 1px solid rgba(201,150,46,.5); transform: translate(-50%, -50%); transition: width .3s var(--ease), height .3s var(--ease), opacity .3s; }
+.cursor-ring.grow { width: 72px; height: 72px; opacity: .3; }
+
+/* NAV */
+.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; display: flex; align-items: center; justify-content: space-between; padding: 2rem 3.5rem; background: rgba(12,12,14,.94); backdrop-filter: blur(18px); border-bottom: 1px solid var(--line); }
+.nav-logo { font-family: var(--serif); font-size: 1rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+.nav-links { display: flex; gap: 2.5rem; align-items: center; }
+.nav-links a { font-size: .76rem; letter-spacing: .12em; text-transform: uppercase; color: var(--soft); transition: color .2s; position: relative; }
+.nav-links a::after { content: ''; position: absolute; bottom: -3px; left: 0; right: 0; height: 1px; background: var(--gold); transform: scaleX(0); transform-origin: right; transition: transform .3s var(--ease); }
+.nav-links a:hover, .nav-links a.active { color: var(--ink); }
+.nav-links a:hover::after, .nav-links a.active::after { transform: scaleX(1); transform-origin: left; }
+.nav-prints { color: var(--gold) !important; }
+.nav-prints::after { display: none !important; }
+.hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; padding: 6px; cursor: none; }
+.ham-line { width: 26px; height: 1px; background: var(--ink); display: block; transition: transform .35s var(--ease), opacity .3s; }
+.hamburger.open .ham-line:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.hamburger.open .ham-line:nth-child(2) { opacity: 0; }
+.hamburger.open .ham-line:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+.mob-menu { position: fixed; inset: 0; z-index: 490; background: var(--bg); display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-end; padding: 5rem 3rem; transform: translateY(-100%); transition: transform .7s var(--ease); }
+.mob-menu.open { transform: translateY(0); }
+.mob-menu a { font-family: var(--serif); font-size: clamp(2.4rem, 8vw, 4.5rem); font-weight: 900; color: var(--ink); line-height: 1.15; display: block; transition: color .2s; }
+.mob-menu a:hover { color: var(--gold); }
+.mob-menu-sub { margin-top: 2rem; display: flex; gap: 1.5rem; flex-wrap: wrap; }
+.mob-menu-sub a { font-family: var(--sans); font-size: .76rem; letter-spacing: .12em; text-transform: uppercase; color: var(--soft); }
+
+/* PAGE HERO */
+.page-hero { padding: 10rem 3.5rem 4rem; background: var(--bg); border-bottom: 1px solid var(--line); position: relative; overflow: hidden; }
+.page-hero::before { content: 'PRINTS'; position: absolute; bottom: -2rem; right: -1rem; font-family: var(--serif); font-size: 20vw; font-weight: 900; color: rgba(240,237,230,.016); line-height: 1; pointer-events: none; user-select: none; white-space: nowrap; }
+.page-hero-eyebrow { font-size: .72rem; letter-spacing: .28em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1rem; }
+.page-hero-eyebrow::before { content: ''; display: block; width: 30px; height: 1px; background: var(--gold); }
+.page-hero-title { font-family: var(--serif); font-size: clamp(3rem, 7vw, 8rem); font-weight: 900; line-height: .9; color: var(--ink); position: relative; z-index: 1; }
+.page-hero-title em { font-style: italic; color: var(--rust); }
+.hero-details { margin-top: 2.5rem; display: flex; gap: 3rem; flex-wrap: wrap; position: relative; z-index: 1; }
+.hero-detail { display: flex; flex-direction: column; gap: .3rem; }
+.hero-detail-label { font-size: .62rem; letter-spacing: .22em; text-transform: uppercase; color: var(--soft); }
+.hero-detail-val { font-size: .88rem; color: var(--ink); }
+
+/* PROCESS STRIP */
+.process-strip { background: var(--bg2); border-bottom: 1px solid var(--line); padding: 2.5rem 3.5rem; display: flex; }
+.process-step { flex: 1; padding: 0 2rem; border-right: 1px solid var(--line); display: flex; flex-direction: column; gap: .5rem; }
+.process-step:first-child { padding-left: 0; }
+.process-step:last-child { border-right: none; }
+.process-num { font-family: var(--serif); font-size: .7rem; font-weight: 700; color: var(--gold); letter-spacing: .1em; }
+.process-name { font-size: .82rem; font-weight: 500; color: var(--ink); }
+.process-desc { font-size: .78rem; font-weight: 300; color: var(--soft); line-height: 1.6; }
+
+/* PRINTS GRID */
+.prints-page { padding: 4rem 3.5rem 6rem; background: var(--bg); }
+.prints-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; border: 1px solid var(--line); margin-bottom: 5rem; }
+.pcard { background: var(--bg2); transition: background .3s; }
+.pcard:hover { background: var(--bg3); }
+.pcard.sold-out { opacity: .65; }
+.pcard-img { overflow: hidden; background: var(--bg3); position: relative; border-bottom: 1px solid var(--line); }
+.pcard-img img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; transition: transform .7s var(--ease); }
+.pcard:not(.sold-out):hover .pcard-img img { transform: scale(1.04); }
+.pcard-ed { position: absolute; top: 1rem; left: 1rem; font-size: .62rem; letter-spacing: .18em; text-transform: uppercase; color: rgba(240,237,230,.45); background: rgba(12,12,14,.8); padding: .3rem .65rem; border: 1px solid var(--line); }
+.pcard-sold-badge { position: absolute; top: 1rem; right: 1rem; font-size: .6rem; letter-spacing: .18em; text-transform: uppercase; color: var(--rust); background: rgba(12,12,14,.85); padding: .3rem .65rem; border: 1px solid rgba(181,90,52,.3); }
+.pcard-body { padding: 2rem; }
+.pcard-name { font-family: var(--serif); font-size: 1.4rem; font-weight: 700; margin-bottom: .3rem; line-height: 1.15; }
+.pcard-series { font-size: .68rem; letter-spacing: .18em; text-transform: uppercase; color: var(--soft); margin-bottom: 1.5rem; }
+.pcard-desc { font-size: .88rem; font-weight: 300; line-height: 1.7; color: var(--soft); margin-bottom: 1.5rem; }
+.size-label { font-size: .68rem; letter-spacing: .18em; text-transform: uppercase; color: var(--soft); margin-bottom: .75rem; }
+.pcard-sizes { display: flex; gap: .5rem; margin-bottom: .75rem; flex-wrap: wrap; }
+.sz { font-size: .72rem; letter-spacing: .08em; color: var(--soft); border: 1px solid rgba(240,237,230,.12); padding: .5rem .9rem; background: none; cursor: none; display: flex; flex-direction: column; align-items: center; gap: .2rem; line-height: 1; transition: border-color .2s, color .2s, background .2s; }
+.sz-price { font-size: .6rem; opacity: .7; }
+.sz:hover, .sz.on { border-color: var(--gold); color: var(--gold); background: rgba(201,150,46,.06); }
+.pcard-price-display { font-size: 1.5rem; font-family: var(--serif); font-weight: 700; color: var(--gold); margin-bottom: 1.5rem; }
+.pcard-price-display sup { font-size: .75rem; font-family: var(--sans); font-weight: 300; color: var(--soft); margin-left: .3rem; }
+.pcard-btn { display: block; width: 100%; text-align: center; font-size: .82rem; font-weight: 500; letter-spacing: .18em; text-transform: uppercase; padding: 1.2rem 1.5rem; background: var(--gold); color: var(--bg); border: none; cursor: none; transition: background .2s, transform .2s, box-shadow .2s; box-shadow: 0 4px 20px rgba(201,150,46,.18); margin-bottom: .75rem; }
+.pcard-btn:hover { background: var(--gold2); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(201,150,46,.3); }
+.pcard-btn-sold { background: rgba(240,237,230,.05); color: rgba(240,237,230,.25); pointer-events: none; box-shadow: none; }
+.pcard-inquiry { display: block; text-align: center; font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; color: var(--soft); transition: color .2s; }
+.pcard-inquiry:hover { color: var(--gold); }
+
+/* GUARANTEE */
+.guarantee { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; border: 1px solid var(--line); opacity: 0; transform: translateY(24px); transition: opacity .9s var(--ease), transform .9s var(--ease); }
+.guarantee.vis { opacity: 1; transform: none; }
+.guarantee-item { background: var(--bg2); padding: 2.5rem 2rem; }
+.guarantee-icon { font-size: 1.6rem; margin-bottom: 1rem; }
+.guarantee-title { font-family: var(--serif); font-size: 1.1rem; font-weight: 700; color: var(--ink); margin-bottom: .75rem; }
+.guarantee-body { font-size: .88rem; font-weight: 300; line-height: 1.7; color: var(--soft); }
+
+/* CUSTOM CTA */
+.custom-cta { background: var(--bg2); border-top: 1px solid var(--line); padding: 7rem 3.5rem; text-align: center; position: relative; overflow: hidden; }
+.custom-cta::before { content: '?'; position: absolute; top: -3rem; right: 5%; font-family: var(--serif); font-size: 30vw; font-weight: 900; color: rgba(240,237,230,.015); line-height: 1; pointer-events: none; }
+.custom-cta-eyebrow { font-size: .72rem; letter-spacing: .28em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; display: inline-flex; align-items: center; gap: 1rem; }
+.custom-cta-eyebrow::before { content: ''; display: block; width: 25px; height: 1px; background: var(--gold); }
+.custom-cta-title { font-family: var(--serif); font-size: clamp(2.5rem, 5vw, 6rem); font-weight: 900; line-height: .92; margin-bottom: 1.5rem; position: relative; z-index: 1; }
+.custom-cta-title em { font-style: italic; color: var(--rust); }
+.custom-cta-body { font-size: 1rem; font-weight: 300; line-height: 1.8; color: var(--soft); max-width: 460px; margin: 0 auto 2.5rem; position: relative; z-index: 1; }
+.custom-cta-btn { display: inline-flex; align-items: center; gap: .6rem; font-size: .78rem; font-weight: 500; letter-spacing: .18em; text-transform: uppercase; color: var(--bg); background: var(--gold); padding: 1rem 2.5rem; border: none; cursor: none; transition: background .2s, transform .2s; position: relative; z-index: 1; }
+.custom-cta-btn:hover { background: var(--gold2); transform: translateY(-2px); }
+
+/* FOOTER */
+.footer { background: var(--bg2); padding: 1.5rem 3.5rem; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--line); }
+.footer-logo { font-family: var(--serif); font-size: .82rem; font-weight: 700; color: var(--soft); letter-spacing: .14em; text-transform: uppercase; }
+.footer-right { font-size: .7rem; letter-spacing: .08em; color: rgba(240,237,230,.2); }
+
+/* LIGHTBOX */
+.lightbox { position: fixed; inset: 0; z-index: 10000; background: rgba(6,6,8,.97); display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity .3s ease; }
+.lightbox.open { opacity: 1; pointer-events: all; }
+.lb-inner { transform: scale(.93) translateY(10px); transition: transform .4s var(--ease); }
+.lightbox.open .lb-inner { transform: scale(1) translateY(0); }
+.lb-inner img { max-width: 90vw; max-height: 88vh; width: auto; height: auto; object-fit: contain; box-shadow: 0 30px 80px rgba(0,0,0,.8); display: block; }
+.lb-close { position: absolute; top: 1.5rem; right: 2rem; font-size: 1.3rem; color: rgba(240,237,230,.4); background: none; border: none; cursor: none; line-height: 1; transition: color .2s, transform .3s; }
+.lb-close:hover { color: var(--gold); transform: rotate(90deg); }
+
+@media (max-width: 1000px) {
+  .nav { padding: 1.5rem 2rem; }
+  .page-hero { padding: 8rem 2rem 3rem; }
+  .process-strip { padding: 2rem; flex-wrap: wrap; gap: 1.5rem; }
+  .process-step { border-right: none; border-bottom: 1px solid var(--line); padding: 0 0 1.5rem; }
+  .process-step:last-child { border-bottom: none; padding-bottom: 0; }
+  .prints-page { padding: 3rem 2rem 4rem; }
+  .prints-grid { grid-template-columns: 1fr 1fr; }
+  .guarantee { grid-template-columns: 1fr; }
+  .custom-cta { padding: 5rem 2rem; }
+  .footer { padding: 1.5rem 2rem; flex-direction: column; gap: .5rem; align-items: flex-start; }
+}
+@media (max-width: 640px) {
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  .prints-grid { grid-template-columns: 1fr; }
+  .cursor, .cursor-ring { display: none; }
+  body { cursor: auto; }
+}
+</style>
+</head>
+<body>
+
+<div class="cursor hidden" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<nav class="nav">
+  <a href="index.html" class="nav-logo">B. Deurbrouck</a>
+  <div class="nav-links">
+    <a href="gallery.html">Gallery</a>
+    <a href="prints.html" class="nav-prints active">Prints</a>
+    <a href="index.html#about">About</a>
+    <a href="index.html#contact">Contact</a>
+  </div>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span class="ham-line"></span>
+    <span class="ham-line"></span>
+    <span class="ham-line"></span>
+  </button>
+</nav>
+
+<div class="mob-menu" id="mobMenu">
+  <a href="index.html">Home</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="prints.html">Prints</a>
+  <div class="mob-menu-sub">
+    <a href="https://www.instagram.com/brandondeurbrouck/" target="_blank">Instagram &#8599;</a>
+    <a href="https://500px.com/p/brandondeurbrouck" target="_blank">500px &#8599;</a>
+    <a href="https://www.linkedin.com/in/brandon-deurbrouck" target="_blank">LinkedIn &#8599;</a>
+  </div>
+</div>
+
+<div class="page-hero">
+  <div class="page-hero-eyebrow">Limited editions</div>
+  <h1 class="page-hero-title">Something worth<br><em>keeping.</em></h1>
+  <div class="hero-details">
+    <div class="hero-detail"><span class="hero-detail-label">Paper</span><span class="hero-detail-val">300gsm Fine Art</span></div>
+    <div class="hero-detail"><span class="hero-detail-label">Editions</span><span class="hero-detail-val">10&#8211;25 per print</span></div>
+    <div class="hero-detail"><span class="hero-detail-label">Signed</span><span class="hero-detail-val">By hand, numbered</span></div>
+    <div class="hero-detail"><span class="hero-detail-label">Shipping</span><span class="hero-detail-val">Canada &amp; USA</span></div>
+  </div>
+</div>
+
+<div class="process-strip">
+  <div class="process-step">
+    <span class="process-num">01</span>
+    <span class="process-name">Capture</span>
+    <span class="process-desc">Shot on location, often in extreme conditions. No compositing.</span>
+  </div>
+  <div class="process-step">
+    <span class="process-num">02</span>
+    <span class="process-name">Process</span>
+    <span class="process-desc">Careful editing to honour what was actually there. Colour true to life.</span>
+  </div>
+  <div class="process-step">
+    <span class="process-num">03</span>
+    <span class="process-name">Print</span>
+    <span class="process-desc">Giclée on archival fine art paper. UV-resistant inks, 100+ year rating.</span>
+  </div>
+  <div class="process-step">
+    <span class="process-num">04</span>
+    <span class="process-name">Sign</span>
+    <span class="process-desc">Hand-signed, edition number written, certificate of authenticity included.</span>
+  </div>
+</div>
+
+<div class="prints-page">
+  <div class="prints-grid">
+
+    <!-- PRINT 1 -->
+    <div class="pcard" data-prices='{"12x16":180,"18x24":260,"24x36":380}'>
+      <div class="pcard-img">
+        <img src="images/print-1.jpg" alt="Stars Over Lower" loading="lazy">
+        <span class="pcard-ed">Ed. of 25</span>
+      </div>
+      <div class="pcard-body">
+        <div class="pcard-name">Stars Over Lower</div>
+        <div class="pcard-series">Night Series &#183; 2023</div>
+        <div class="pcard-desc">Lower Kananaskis Lake, 2am. No moon, no wind. The kind of night that makes you stay three hours past when you meant to leave.</div>
+        <div class="size-label">Select size</div>
+        <div class="pcard-sizes">
+          <button class="sz on" data-size="12x16"><span>12&#215;16&#8221;</span><span class="sz-price">$180</span></button>
+          <button class="sz" data-size="18x24"><span>18&#215;24&#8221;</span><span class="sz-price">$260</span></button>
+          <button class="sz" data-size="24x36"><span>24&#215;36&#8221;</span><span class="sz-price">$380</span></button>
+        </div>
+        <div class="pcard-price-display">$<span class="price-val">180</span><sup>CAD</sup></div>
+        <a href="https://highlinevinyl.com/products/stars-over-lower" target="_blank" class="pcard-btn">Order this print</a>
+        <a href="mailto:hello@brandondeurbrouck.com" class="pcard-inquiry">Questions? Get in touch &#8594;</a>
+      </div>
+    </div>
+
+    <!-- PRINT 2 -->
+    <div class="pcard" data-prices='{"12x16":240,"18x24":340,"24x36":480}'>
+      <div class="pcard-img">
+        <img src="images/print-2.jpg" alt="Twinkle and Taillights" loading="lazy">
+        <span class="pcard-ed">Ed. of 10</span>
+      </div>
+      <div class="pcard-body">
+        <div class="pcard-name">Twinkle &amp; Taillights</div>
+        <div class="pcard-series">Night Series &#183; 2024</div>
+        <div class="pcard-desc">Highway 1 on a clear January night. Stars above, taillights below. The original sold in 48 hours.</div>
+        <div class="size-label">Select size</div>
+        <div class="pcard-sizes">
+          <button class="sz on" data-size="12x16"><span>12&#215;16&#8221;</span><span class="sz-price">$240</span></button>
+          <button class="sz" data-size="18x24"><span>18&#215;24&#8221;</span><span class="sz-price">$340</span></button>
+          <button class="sz" data-size="24x36"><span>24&#215;36&#8221;</span><span class="sz-price">$480</span></button>
+        </div>
+        <div class="pcard-price-display">$<span class="price-val">240</span><sup>CAD</sup></div>
+        <a href="https://highlinevinyl.com/products/twinkle-taillights" target="_blank" class="pcard-btn">Order this print</a>
+        <a href="mailto:hello@brandondeurbrouck.com" class="pcard-inquiry">Questions? Get in touch &#8594;</a>
+      </div>
+    </div>
+
+    <!-- PRINT 3 — SOLD OUT -->
+    <div class="pcard sold-out">
+      <div class="pcard-img">
+        <img src="images/print-3.jpg" alt="Alone on 40" loading="lazy">
+        <span class="pcard-ed">Ed. of 15</span>
+        <span class="pcard-sold-badge">Sold Out</span>
+      </div>
+      <div class="pcard-body">
+        <div class="pcard-name">Alone on 40</div>
+        <div class="pcard-series">Landscape Series &#183; 2023</div>
+        <div class="pcard-desc">Highway 40, late October. A truck, a road, and nothing else for fifty kilometres in any direction.</div>
+        <div class="size-label">Edition complete</div>
+        <div class="pcard-sizes">
+          <button class="sz on" disabled><span>18&#215;24&#8221;</span><span class="sz-price">$320</span></button>
+          <button class="sz" disabled><span>24&#215;36&#8221;</span><span class="sz-price">$460</span></button>
+        </div>
+        <div class="pcard-price-display">$<span class="price-val">320</span><sup>CAD</sup></div>
+        <a href="#" class="pcard-btn pcard-btn-sold">Sold Out</a>
+        <a href="mailto:hello@brandondeurbrouck.com" class="pcard-inquiry">Join waitlist &#8594;</a>
+      </div>
+    </div>
+
+    <!-- PRINT 4 -->
+    <div class="pcard" data-prices='{"12x16":200,"18x24":290,"24x36":420}'>
+      <div class="pcard-img">
+        <img src="images/photo-5.jpg" alt="Spruce Valley" loading="lazy">
+        <span class="pcard-ed">Ed. of 20</span>
+      </div>
+      <div class="pcard-body">
+        <div class="pcard-name">Spruce Valley</div>
+        <div class="pcard-series">Landscape Series &#183; 2024</div>
+        <div class="pcard-desc">Kananaskis, early morning fog. The trees disappeared into white about fifty metres back. Waited an hour for the light to do what it did.</div>
+        <div class="size-label">Select size</div>
+        <div class="pcard-sizes">
+          <button class="sz on" data-size="12x16"><span>12&#215;16&#8221;</span><span class="sz-price">$200</span></button>
+          <button class="sz" data-size="18x24"><span>18&#215;24&#8221;</span><span class="sz-price">$290</span></button>
+          <button class="sz" data-size="24x36"><span>24&#215;36&#8221;</span><span class="sz-price">$420</span></button>
+        </div>
+        <div class="pcard-price-display">$<span class="price-val">200</span><sup>CAD</sup></div>
+        <a href="mailto:hello@brandondeurbrouck.com" target="_blank" class="pcard-btn">Order this print</a>
+        <a href="mailto:hello@brandondeurbrouck.com" class="pcard-inquiry">Questions? Get in touch &#8594;</a>
+      </div>
+    </div>
+
+    <!-- PRINT 5 -->
+    <div class="pcard" data-prices='{"16x20":220,"24x30":320}'>
+      <div class="pcard-img">
+        <img src="images/photo-2.jpg" alt="Still Lake" loading="lazy">
+        <span class="pcard-ed">Ed. of 20</span>
+      </div>
+      <div class="pcard-body">
+        <div class="pcard-name">Still Lake</div>
+        <div class="pcard-series">Landscape Series &#183; 2024</div>
+        <div class="pcard-desc">6am, no wind. The reflection was so perfect I checked the camera twice to make sure it wasn&#8217;t upside down.</div>
+        <div class="size-label">Select size</div>
+        <div class="pcard-sizes">
+          <button class="sz on" data-size="16x20"><span>16&#215;20&#8221;</span><span class="sz-price">$220</span></button>
+          <button class="sz" data-size="24x30"><span>24&#215;30&#8221;</span><span class="sz-price">$320</span></button>
+        </div>
+        <div class="pcard-price-display">$<span class="price-val">220</span><sup>CAD</sup></div>
+        <a href="mailto:hello@brandondeurbrouck.com" target="_blank" class="pcard-btn">Order this print</a>
+        <a href="mailto:hello@brandondeurbrouck.com" class="pcard-inquiry">Questions? Get in touch &#8594;</a>
+      </div>
+    </div>
+
+    <!-- PRINT 6 -->
+    <div class="pcard" data-prices='{"12x16":160,"18x24":230,"24x36":340}'>
+      <div class="pcard-img">
+        <img src="images/photo-4.jpg" alt="Open Prairie" loading="lazy">
+        <span class="pcard-ed">Ed. of 25</span>
+      </div>
+      <div class="pcard-body">
+        <div class="pcard-name">Open Prairie</div>
+        <div class="pcard-series">Landscape Series &#183; 2023</div>
+        <div class="pcard-desc">Southern Alberta, late September. Storm front moving east, light breaking through from the west. Forty seconds to get the shot.</div>
+        <div class="size-label">Select size</div>
+        <div class="pcard-sizes">
+          <button class="sz on" data-size="12x16"><span>12&#215;16&#8221;</span><span class="sz-price">$160</span></button>
+          <button class="sz" data-size="18x24"><span>18&#215;24&#8221;</span><span class="sz-price">$230</span></button>
+          <button class="sz" data-size="24x36"><span>24&#215;36&#8221;</span><span class="sz-price">$340</span></button>
+        </div>
+        <div class="pcard-price-display">$<span class="price-val">160</span><sup>CAD</sup></div>
+        <a href="mailto:hello@brandondeurbrouck.com" target="_blank" class="pcard-btn">Order this print</a>
+        <a href="mailto:hello@brandondeurbrouck.com" class="pcard-inquiry">Questions? Get in touch &#8594;</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="guarantee" id="guarantee">
+    <div class="guarantee-item">
+      <div class="guarantee-icon">&#128424;</div>
+      <div class="guarantee-title">Museum-quality print</div>
+      <div class="guarantee-body">Gicl&#233;e printing on 300gsm fine art paper. UV-resistant inks rated for 100+ years. The same process used by galleries worldwide.</div>
+    </div>
+    <div class="guarantee-item">
+      <div class="guarantee-icon">&#9997;</div>
+      <div class="guarantee-title">Signed &amp; numbered</div>
+      <div class="guarantee-body">Every print is hand-signed, numbered, and comes with a certificate of authenticity. Your edition number is yours &#8212; no duplicates.</div>
+    </div>
+    <div class="guarantee-item">
+      <div class="guarantee-icon">&#128230;</div>
+      <div class="guarantee-title">Careful packaging</div>
+      <div class="guarantee-body">Shipped flat in rigid mailers with foam padding. Arrives in perfect condition or I&#8217;ll make it right. Shipping across Canada and USA.</div>
+    </div>
+  </div>
+
+</div>
+
+<div class="custom-cta">
+  <div class="custom-cta-eyebrow">Bespoke</div>
+  <h2 class="custom-cta-title">Want something<br><em>custom?</em></h2>
+  <p class="custom-cta-body">Looking for a specific shot, size, or subject? Commissions are open. Let&#8217;s figure something out.</p>
+  <a href="https://calendar.app.google/5akHH681YC5tMsaz9" target="_blank" class="custom-cta-btn">Book a call &#8594;</a>
+</div>
+
+<footer class="footer">
+  <span class="footer-logo">Brandon Deurbrouck</span>
+  <span class="footer-right">&#169; <span id="yr"></span> &#183; brandondeurbrouck.com</span>
+</footer>
+
+<div class="lightbox" id="lightbox">
+  <button class="lb-close" id="lbClose">&#10005;</button>
+  <div class="lb-inner"><img id="lbImg" src="" alt=""></div>
+</div>
+
+<script>
+// CURSOR
+var cur = document.getElementById('cursor');
+var ring = document.getElementById('cursorRing');
+var mx = -500, my = -500, rx = -500, ry = -500;
+document.addEventListener('mousemove', function(e) {
+  mx = e.clientX; my = e.clientY;
+  cur.classList.remove('hidden');
+  cur.style.left = mx + 'px'; cur.style.top = my + 'px';
+});
+document.addEventListener('mouseleave', function() { cur.classList.add('hidden'); });
+(function loop() { rx += (mx - rx) * 0.13; ry += (my - ry) * 0.13; ring.style.left = rx + 'px'; ring.style.top = ry + 'px'; requestAnimationFrame(loop); })();
+document.querySelectorAll('a, button, .pcard').forEach(function(el) {
+  el.addEventListener('mouseenter', function() { cur.classList.add('grow'); ring.classList.add('grow'); });
+  el.addEventListener('mouseleave', function() { cur.classList.remove('grow'); ring.classList.remove('grow'); });
+});
+
+// MOBILE MENU
+var hamburger = document.getElementById('hamburger');
+var mobMenu = document.getElementById('mobMenu');
+hamburger.addEventListener('click', function() {
+  var open = mobMenu.classList.toggle('open');
+  hamburger.classList.toggle('open', open);
+  document.body.style.overflow = open ? 'hidden' : '';
+});
+mobMenu.querySelectorAll('a').forEach(function(a) {
+  a.addEventListener('click', function() {
+    mobMenu.classList.remove('open');
+    hamburger.classList.remove('open');
+    document.body.style.overflow = '';
+  });
+});
+
+// SIZE + PRICE SELECTOR
+document.querySelectorAll('.pcard').forEach(function(card) {
+  if (card.classList.contains('sold-out')) return;
+  var prices = JSON.parse(card.dataset.prices || '{}');
+  var priceVal = card.querySelector('.price-val');
+  card.querySelectorAll('.sz').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      card.querySelectorAll('.sz').forEach(function(b) { b.classList.remove('on'); });
+      btn.classList.add('on');
+      var size = btn.dataset.size;
+      if (priceVal && prices[size]) priceVal.textContent = prices[size];
+    });
+  });
+});
+
+// SCROLL REVEAL
+var revObs = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (e.isIntersecting) { e.target.classList.add('vis'); revObs.unobserve(e.target); }
+  });
+}, { threshold: 0.07 });
+var guarantee = document.getElementById('guarantee');
+if (guarantee) revObs.observe(guarantee);
+
+// LIGHTBOX (image preview)
+var lightbox = document.getElementById('lightbox');
+var lbImg = document.getElementById('lbImg');
+lbImg.style.transition = 'opacity .14s ease';
+document.querySelectorAll('.pcard-img img').forEach(function(img) {
+  img.style.cursor = 'zoom-in';
+  img.addEventListener('click', function() {
+    lbImg.src = img.src;
+    lightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  });
+});
+function closeLb() {
+  lightbox.classList.remove('open');
+  document.body.style.overflow = '';
+  setTimeout(function() { lbImg.src = ''; }, 300);
+}
+document.getElementById('lbClose').addEventListener('click', closeLb);
+lightbox.addEventListener('click', function(e) { if (e.target === lightbox) closeLb(); });
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape' && lightbox.classList.contains('open')) closeLb();
+});
+
+document.getElementById('yr').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
