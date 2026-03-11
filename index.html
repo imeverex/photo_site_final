@@ -143,7 +143,7 @@ body::before {
 @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
 /* PINNED ZOOM */
-.zoom-section { height: 250vh; position: relative; }
+.zoom-section { height: 150vh; position: relative; }
 .zoom-sticky { position: sticky; top: 0; height: 100vh; overflow: hidden; display: flex; align-items: center; justify-content: center; background: var(--bg); }
 .zoom-img-wrap { width: 22vw; height: 30vw; overflow: hidden; position: relative; }
 .zoom-img-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
@@ -159,7 +159,7 @@ body::before {
 .stat-label { font-size: .72rem; letter-spacing: .2em; text-transform: uppercase; color: var(--soft); }
 
 /* SCROLL TEXT */
-.scroll-text-section { height: 200vh; position: relative; background: var(--bg2); border-top: 1px solid var(--line); }
+.scroll-text-section { height: 120vh; position: relative; background: var(--bg2); border-top: 1px solid var(--line); }
 .scroll-text-sticky { position: sticky; top: 0; height: 100vh; display: flex; align-items: center; overflow: hidden; padding: 0 3.5rem; }
 .scroll-text-track { display: flex; align-items: center; gap: 5vw; white-space: nowrap; }
 .scroll-text-word { font-family: var(--serif); font-size: clamp(4rem, 8vw, 10rem); font-weight: 900; color: transparent; -webkit-text-stroke: 1px rgba(240,237,230,.12); white-space: nowrap; transition: color .4s, -webkit-text-stroke .4s; }
@@ -205,10 +205,10 @@ body::before {
 
 /* STORY */
 .story-section { background: var(--bg); overflow: hidden; border-top: 1px solid var(--line); }
-.story-inner { display: grid; grid-template-columns: 1fr 1fr; min-height: 90vh; }
+.story-inner { display: grid; grid-template-columns: 1fr 1fr; min-height: 70vh; }
 .story-img-side { position: relative; overflow: hidden; background: var(--bg3); }
 .story-img-side img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.story-text-side { padding: 6rem 4rem; display: flex; flex-direction: column; justify-content: center; gap: 3rem; }
+.story-text-side { padding: 4rem 4rem; display: flex; flex-direction: column; justify-content: center; gap: 2rem; }
 .story-eyebrow { font-size: .72rem; letter-spacing: .28em; text-transform: uppercase; color: var(--rust); display: flex; align-items: center; gap: 1rem; }
 .story-eyebrow::before { content: ''; display: block; width: 25px; height: 1px; background: var(--rust); }
 .story-chunk { opacity: 0; transform: translateY(36px); transition: opacity .8s var(--ease), transform .8s var(--ease); }
@@ -219,9 +219,9 @@ body::before {
 .story-divider { width: 1px; height: 40px; background: var(--line); }
 
 /* PRINTS */
-.prints { background: var(--bg); padding: 7rem 3.5rem; position: relative; overflow: hidden; }
+.prints { background: var(--bg); padding: 4.5rem 3.5rem; position: relative; overflow: hidden; }
 .prints::before { content: 'PRINTS'; position: absolute; top: -1.5rem; right: -1rem; font-family: var(--serif); font-size: 18vw; font-weight: 900; color: rgba(240,237,230,.016); line-height: 1; pointer-events: none; user-select: none; white-space: nowrap; }
-.prints-head { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; margin-bottom: 5rem; align-items: end; position: relative; z-index: 1; border-bottom: 1px solid var(--line); padding-bottom: 4rem; }
+.prints-head { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; margin-bottom: 3rem; align-items: end; position: relative; z-index: 1; border-bottom: 1px solid var(--line); padding-bottom: 3rem; }
 .prints-eyebrow { display: flex; align-items: center; gap: 1rem; font-size: .72rem; font-weight: 500; letter-spacing: .25em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; }
 .prints-eyebrow::before { content: ''; display: block; width: 25px; height: 1px; background: var(--gold); }
 .prints-title { font-family: var(--serif); font-size: clamp(2.2rem, 4vw, 4.5rem); font-weight: 900; line-height: .95; letter-spacing: -.01em; }
@@ -253,7 +253,7 @@ body::before {
 .about-img-col img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .8s var(--ease); }
 .about-img-col:hover img { transform: scale(1.03); }
 .about-img-label { position: absolute; top: 50%; right: 1.5rem; transform: translateY(-50%) rotate(90deg); font-size: .58rem; letter-spacing: .35em; text-transform: uppercase; color: rgba(240,237,230,.22); white-space: nowrap; }
-.about-content { padding: 6rem 4.5rem; display: flex; flex-direction: column; justify-content: center; position: relative; }
+.about-content { padding: 4rem 4.5rem; display: flex; flex-direction: column; justify-content: center; position: relative; }
 .about-content::before { content: '03'; position: absolute; top: -1rem; right: 2rem; font-family: var(--serif); font-size: 16rem; font-weight: 900; color: rgba(240,237,230,.02); line-height: 1; pointer-events: none; }
 .about-eyebrow { display: flex; align-items: center; gap: 1rem; font-size: .72rem; font-weight: 500; letter-spacing: .25em; text-transform: uppercase; color: var(--rust); margin-bottom: 2rem; }
 .about-eyebrow::before { content: ''; display: block; width: 25px; height: 1px; background: var(--rust); }
@@ -268,7 +268,7 @@ body::before {
 .about-location::before { content: '◈'; font-size: .6rem; color: var(--gold); }
 
 /* CONTACT */
-.contact { background: var(--bg); padding: 8rem 3.5rem; position: relative; overflow: hidden; border-top: 1px solid var(--line); }
+.contact { background: var(--bg); padding: 5rem 3.5rem; position: relative; overflow: hidden; border-top: 1px solid var(--line); }
 .contact::before { content: 'HELLO'; position: absolute; bottom: -3rem; right: -1rem; font-family: var(--serif); font-size: 20vw; font-weight: 900; color: rgba(240,237,230,.013); line-height: 1; pointer-events: none; user-select: none; }
 .contact::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px; background: linear-gradient(to right, var(--rust), var(--gold), var(--sky)); }
 .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8rem; align-items: center; position: relative; z-index: 1; }
@@ -315,7 +315,7 @@ body::before {
   .hero-left { padding: 9rem 2.5rem 4rem; min-height: 100vh; }
   .hero-right { height: 60vw; }
   .scroll-hint { display: none; }
-  .zoom-section { height: 160vh; }
+  .zoom-section { height: 110vh; }
   .zoom-img-wrap { width: 70vw; height: 82vw; }
   .stats { grid-template-columns: 1fr 1fr; }
   .stat + .stat::before { display: none; }
@@ -345,6 +345,17 @@ body::before {
   body { cursor: auto; }
   .scroll-text-word { font-size: clamp(2.8rem, 11vw, 5rem); }
 }
+
+/* SOCIAL ICONS */
+.social-icon { display: inline-flex; align-items: center; justify-content: center; color: var(--soft); transition: color .2s, transform .2s; }
+.social-icon:hover { color: var(--gold); transform: translateY(-2px); }
+.mob-menu-sub .social-icon { width: 36px; height: 36px; border: 1px solid var(--line); }
+.mob-menu-sub .social-icon:hover { border-color: var(--gold); }
+.contact-socials .social-icon { width: 44px; height: 44px; border: 1px solid var(--line); }
+.contact-socials .social-icon:hover { border-color: var(--gold); background: rgba(201,150,46,.06); }
+
+.social-500px { font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: var(--soft); transition: color .2s; display: inline-flex; align-items: center; }
+.social-500px:hover { color: var(--gold); }
 </style>
 </head>
 <body>
@@ -373,9 +384,22 @@ body::before {
   <a href="#about">About</a>
   <a href="#contact">Contact</a>
   <div class="mob-menu-sub">
-    <a href="https://www.instagram.com/brandondeurbrouck/" target="_blank">Instagram &#8599;</a>
-    <a href="https://500px.com/p/brandondeurbrouck" target="_blank">500px &#8599;</a>
-    <a href="https://www.linkedin.com/in/brandon-deurbrouck" target="_blank">LinkedIn &#8599;</a>
+    <a href="https://www.instagram.com/brandondeurbrouck/" target="_blank" aria-label="Instagram" class="social-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".5" fill="currentColor" stroke="none"/></svg></a>
+    <a href="https://500px.com/p/brandondeurbrouck" target="_blank" aria-label="500px" class="social-icon"><svg width="20" height="20" viewBox="0 0 305 305" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M254.773,118.227c-29.076,0-47.951,22.781-54.153,30.267c-0.045,0.055-0.091,0.11-0.137,0.165
+		c-0.04-0.049-0.08-0.097-0.119-0.145c-6.182-7.491-24.991-30.287-54.303-30.287c-19.289,0-34.163,9.72-44.242,28.899
+		c-8.588-15.419-21.261-23.232-37.703-23.232c-13.762,0-21.114,3.656-25.234,6.855c0.822-5.127,2.112-13.014,3.859-23.262h55.846
+		c1.381,0,2.5-1.119,2.5-2.5V82.321c0-1.381-1.119-2.5-2.5-2.5h-78.41c-1.215,0-2.254,0.873-2.463,2.07l-13.258,75.93
+		c-0.127,0.727,0.074,1.474,0.549,2.039c0.476,0.565,1.176,0.892,1.914,0.892h25.379c0.917,0,1.76-0.502,2.197-1.308
+		c0.051-0.094,5.258-9.396,19.016-9.396c14.606,0,22.248,11.411,22.248,22.684c0,12.016-9.515,25.454-22.248,25.454
+		c-12.532,0-20.228-10.719-20.228-18.403c0-1.381-1.119-2.5-2.5-2.5H2.5c-1.381,0-2.5,1.119-2.5,2.5
+		c0,4.918,1.923,15.876,9.129,25.755c6.536,8.961,19.541,19.642,44.381,19.642c28.598,0,43.368-16.391,48.603-26.428
+		c5.636,9.817,20.028,26.428,43.947,26.428c29.243,0,46.779-20.657,53.382-28.433c0.371-0.438,0.763-0.899,1.116-1.306
+		c0.475,0.492,1.026,1.079,1.544,1.63c7.22,7.688,26.398,28.109,52.67,28.109c31.44,0,50.227-27.307,50.227-53.707
+		c0-13.186-4.34-26.202-11.907-35.712C283.965,124.29,270.714,118.227,254.773,118.227z M254.994,193.137
+		c-13.944,0-29.453-16.033-34.087-21.199c4.634-5.166,20.143-21.199,34.087-21.199c18.277,0,18.807,20.982,18.807,21.203
+		C273.801,172.154,273.272,193.137,254.994,193.137z M146.219,193.137c-18.278,0-18.808-20.982-18.808-21.198v-0.005h0.001
+		c0-0.212,0.525-21.194,18.807-21.194c13.884,0,29.429,16.028,34.082,21.199C175.652,177.105,160.105,193.137,146.219,193.137z"/></svg></a>
+    <a href="https://www.linkedin.com/in/brandon-deurbrouck" target="_blank" aria-label="LinkedIn" class="social-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></a>
   </div>
 </div>
 
@@ -585,9 +609,22 @@ body::before {
       <a href="https://calendar.app.google/5akHH681YC5tMsaz9" target="_blank" class="btn-primary" style="width:fit-content">Book a call &#8594;</a>
       <a href="mailto:hello@brandondeurbrouck.com" class="contact-email">hello&#64;brandondeurbrouck.com</a>
       <div class="contact-socials">
-        <a href="https://www.instagram.com/brandondeurbrouck/" target="_blank">Instagram &#8599;</a>
-        <a href="https://500px.com/p/brandondeurbrouck" target="_blank">500px &#8599;</a>
-        <a href="https://www.linkedin.com/in/brandon-deurbrouck" target="_blank">LinkedIn &#8599;</a>
+        <a href="https://www.instagram.com/brandondeurbrouck/" target="_blank" aria-label="Instagram" class="social-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".5" fill="currentColor" stroke="none"/></svg></a>
+        <a href="https://500px.com/p/brandondeurbrouck" target="_blank" aria-label="500px" class="social-icon"><svg width="20" height="20" viewBox="0 0 305 305" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M254.773,118.227c-29.076,0-47.951,22.781-54.153,30.267c-0.045,0.055-0.091,0.11-0.137,0.165
+		c-0.04-0.049-0.08-0.097-0.119-0.145c-6.182-7.491-24.991-30.287-54.303-30.287c-19.289,0-34.163,9.72-44.242,28.899
+		c-8.588-15.419-21.261-23.232-37.703-23.232c-13.762,0-21.114,3.656-25.234,6.855c0.822-5.127,2.112-13.014,3.859-23.262h55.846
+		c1.381,0,2.5-1.119,2.5-2.5V82.321c0-1.381-1.119-2.5-2.5-2.5h-78.41c-1.215,0-2.254,0.873-2.463,2.07l-13.258,75.93
+		c-0.127,0.727,0.074,1.474,0.549,2.039c0.476,0.565,1.176,0.892,1.914,0.892h25.379c0.917,0,1.76-0.502,2.197-1.308
+		c0.051-0.094,5.258-9.396,19.016-9.396c14.606,0,22.248,11.411,22.248,22.684c0,12.016-9.515,25.454-22.248,25.454
+		c-12.532,0-20.228-10.719-20.228-18.403c0-1.381-1.119-2.5-2.5-2.5H2.5c-1.381,0-2.5,1.119-2.5,2.5
+		c0,4.918,1.923,15.876,9.129,25.755c6.536,8.961,19.541,19.642,44.381,19.642c28.598,0,43.368-16.391,48.603-26.428
+		c5.636,9.817,20.028,26.428,43.947,26.428c29.243,0,46.779-20.657,53.382-28.433c0.371-0.438,0.763-0.899,1.116-1.306
+		c0.475,0.492,1.026,1.079,1.544,1.63c7.22,7.688,26.398,28.109,52.67,28.109c31.44,0,50.227-27.307,50.227-53.707
+		c0-13.186-4.34-26.202-11.907-35.712C283.965,124.29,270.714,118.227,254.773,118.227z M254.994,193.137
+		c-13.944,0-29.453-16.033-34.087-21.199c4.634-5.166,20.143-21.199,34.087-21.199c18.277,0,18.807,20.982,18.807,21.203
+		C273.801,172.154,273.272,193.137,254.994,193.137z M146.219,193.137c-18.278,0-18.808-20.982-18.808-21.198v-0.005h0.001
+		c0-0.212,0.525-21.194,18.807-21.194c13.884,0,29.429,16.028,34.082,21.199C175.652,177.105,160.105,193.137,146.219,193.137z"/></svg></a>
+        <a href="https://www.linkedin.com/in/brandon-deurbrouck" target="_blank" aria-label="LinkedIn" class="social-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></a>
       </div>
     </div>
   </div>
