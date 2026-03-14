@@ -184,63 +184,91 @@ body::before { content: ''; position: fixed; inset: 0; z-index: 9000; pointer-ev
   <button class="filter-btn active" data-filter="all">All</button>
   <button class="filter-btn" data-filter="stars">Stars &amp; Night</button>
   <button class="filter-btn" data-filter="landscape">Landscape</button>
-  <button class="filter-btn" data-filter="wildlife">Wildlife</button>
   <button class="filter-btn" data-filter="city">City</button>
-  <span class="filter-count">Showing <span id="photoCount">12</span> photos</span>
+  <button class="filter-btn" data-filter="badlands">Badlands</button>
+  <button class="filter-btn" data-filter="golden">Golden Hour</button>
+  <button class="filter-btn" data-filter="portrait">Portrait</button>
+  <span class="filter-count">Showing <span id="photoCount">18</span> photos</span>
 </div>
 
 <div class="gallery-grid" id="galleryGrid">
 
   <div class="gcard" data-cat="stars">
-    <img src="images/stars-1.jpg" alt="" loading="lazy">
+    <img src="images/photo-1.jpg" alt="Stars Over Lower" loading="lazy">
     <div class="gcard-overlay"><span class="gcard-tag">Stars &amp; Night</span><span class="gcard-title">Stars Over Lower</span></div>
   </div>
   <div class="gcard" data-cat="stars">
-    <img src="images/stars-2.jpg" alt="" loading="lazy">
+    <img src="images/photo-6.jpg" alt="Milky Way" loading="lazy">
     <div class="gcard-overlay"><span class="gcard-tag">Stars &amp; Night</span><span class="gcard-title">Milky Way Ridge</span></div>
   </div>
   <div class="gcard" data-cat="stars">
-    <img src="images/stars-3.jpg" alt="" loading="lazy">
+    <img src="images/print-1.jpg" alt="Taillights" loading="lazy">
     <div class="gcard-overlay"><span class="gcard-tag">Stars &amp; Night</span><span class="gcard-title">Twinkle &amp; Taillights</span></div>
   </div>
 
   <div class="gcard" data-cat="landscape">
-    <img src="images/landscape-1.jpg" alt="" loading="lazy">
+    <img src="images/photo-2.jpg" alt="Mountain Lake" loading="lazy">
     <div class="gcard-overlay"><span class="gcard-tag">Landscape</span><span class="gcard-title">Still Lake</span></div>
   </div>
   <div class="gcard" data-cat="landscape">
-    <img src="images/landscape-2.jpg" alt="" loading="lazy">
+    <img src="images/photo-7.jpg" alt="Prairie" loading="lazy">
     <div class="gcard-overlay"><span class="gcard-tag">Landscape</span><span class="gcard-title">Open Prairie</span></div>
   </div>
   <div class="gcard" data-cat="landscape">
-    <img src="images/landscape-3.jpg" alt="" loading="lazy">
+    <img src="images/photo-5.jpg" alt="Forest" loading="lazy">
     <div class="gcard-overlay"><span class="gcard-tag">Landscape</span><span class="gcard-title">Spruce Valley</span></div>
   </div>
-
-  <div class="gcard" data-cat="wildlife">
-    <img src="images/wildlife-1.jpg" alt="" loading="lazy">
-    <div class="gcard-overlay"><span class="gcard-tag">Wildlife</span><span class="gcard-title">In the Field</span></div>
-  </div>
-  <div class="gcard" data-cat="wildlife">
-    <img src="images/wildlife-2.jpg" alt="" loading="lazy">
-    <div class="gcard-overlay"><span class="gcard-tag">Wildlife</span><span class="gcard-title">On Watch</span></div>
-  </div>
-  <div class="gcard" data-cat="wildlife">
-    <img src="images/wildlife-3.jpg" alt="" loading="lazy">
-    <div class="gcard-overlay"><span class="gcard-tag">Wildlife</span><span class="gcard-title">Still Morning</span></div>
+  <div class="gcard" data-cat="landscape">
+    <img src="images/photo-8.jpg" alt="River" loading="lazy">
+    <div class="gcard-overlay"><span class="gcard-tag">Landscape</span><span class="gcard-title">Bow River Bend</span></div>
   </div>
 
   <div class="gcard" data-cat="city">
-    <img src="images/city-1.jpg" alt="" loading="lazy">
-    <div class="gcard-overlay"><span class="gcard-tag">City</span><span class="gcard-title">Calgary Skyline</span></div>
-  </div>
-  <div class="gcard" data-cat="city">
-    <img src="images/city-2.jpg" alt="" loading="lazy">
+    <img src="images/print-2.jpg" alt="City Night" loading="lazy">
     <div class="gcard-overlay"><span class="gcard-tag">City</span><span class="gcard-title">Downtown at 2am</span></div>
   </div>
   <div class="gcard" data-cat="city">
-    <img src="images/city-3.jpg" alt="" loading="lazy">
-    <div class="gcard-overlay"><span class="gcard-tag">City</span><span class="gcard-title">Night Streets</span></div>
+    <img src="images/photo-9.jpg" alt="Skyline" loading="lazy">
+    <div class="gcard-overlay"><span class="gcard-tag">City</span><span class="gcard-title">Calgary Skyline</span></div>
+  </div>
+
+  <div class="gcard" data-cat="badlands">
+    <img src="images/photo-4.jpg" alt="Badlands" loading="lazy">
+    <div class="gcard-overlay"><span class="gcard-tag">Badlands</span><span class="gcard-title">Drumheller Clay</span></div>
+  </div>
+  <div class="gcard" data-cat="badlands">
+    <img src="images/print-3.jpg" alt="Highway 40" loading="lazy">
+    <div class="gcard-overlay"><span class="gcard-tag">Badlands</span><span class="gcard-title">Alone on 40</span></div>
+  </div>
+  <div class="gcard" data-cat="badlands">
+    <img src="images/photo-3.jpg" alt="Hoodoos" loading="lazy">
+    <div class="gcard-overlay"><span class="gcard-tag">Badlands</span><span class="gcard-title">Hoodoo Hour</span></div>
+  </div>
+
+  <div class="gcard" data-cat="golden">
+    <img src="images/photo-3.jpg" alt="Sunset" loading="lazy">
+    <div class="gcard-overlay"><span class="gcard-tag">Golden Hour</span><span class="gcard-title">Last Light</span></div>
+  </div>
+  <div class="gcard" data-cat="golden">
+    <img src="images/hero.jpg" alt="Golden Field" loading="lazy">
+    <div class="gcard-overlay"><span class="gcard-tag">Golden Hour</span><span class="gcard-title">Canola at Dusk</span></div>
+  </div>
+  <div class="gcard" data-cat="golden">
+    <img src="images/photo-2.jpg" alt="Warm Lake" loading="lazy">
+    <div class="gcard-overlay"><span class="gcard-tag">Golden Hour</span><span class="gcard-title">Warm Mirror</span></div>
+  </div>
+
+  <div class="gcard" data-cat="portrait">
+    <img src="images/photo-1.jpg" alt="Portrait" loading="lazy">
+    <div class="gcard-overlay"><span class="gcard-tag">Portrait</span><span class="gcard-title">Field Study</span></div>
+  </div>
+  <div class="gcard" data-cat="portrait">
+    <img src="images/about-2.jpg" alt="Portrait" loading="lazy">
+    <div class="gcard-overlay"><span class="gcard-tag">Portrait</span><span class="gcard-title">Behind the Lens</span></div>
+  </div>
+  <div class="gcard" data-cat="portrait">
+    <img src="images/photo-6.jpg" alt="Portrait" loading="lazy">
+    <div class="gcard-overlay"><span class="gcard-tag">Portrait</span><span class="gcard-title">The Watcher</span></div>
   </div>
 
 </div>

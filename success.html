@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Order Confirmed — Brandon Deurbrouck</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #0e0e0e;
+      color: #f0ece4;
+      font-family: 'Georgia', serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .check {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      border: 1.5px solid #a89f8c;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 2rem;
+      font-size: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 0.6s ease forwards;
+    }
+
+    h1 {
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+      opacity: 0;
+      animation: fadeUp 0.6s ease 0.15s forwards;
+    }
+
+    h1 em {
+      font-style: italic;
+      color: #a89f8c;
+    }
+
+    p {
+      font-size: 1rem;
+      color: #8a8278;
+      line-height: 1.7;
+      max-width: 480px;
+      margin: 0 auto 2.5rem;
+      opacity: 0;
+      animation: fadeUp 0.6s ease 0.3s forwards;
+    }
+
+    .links {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp 0.6s ease 0.45s forwards;
+    }
+
+    a {
+      color: #f0ece4;
+      text-decoration: none;
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-bottom: 1px solid #3a3630;
+      padding-bottom: 2px;
+      transition: border-color 0.2s;
+    }
+
+    a:hover { border-color: #a89f8c; }
+
+    .brand {
+      position: fixed;
+      top: 2rem;
+      left: 2rem;
+      font-size: 0.85rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #8a8278;
+      text-decoration: none;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <a class="brand" href="/">B. Deurbrouck</a>
+
+  <div class="check">✓</div>
+
+  <h1>Order <em>confirmed.</em></h1>
+
+  <p>
+    Your print is on its way. You'll receive a confirmation email shortly.
+    Every print is hand-signed and carefully packaged — give it a week or two to reach you.
+  </p>
+
+  <div class="links">
+    <a href="/prints.html">Back to prints</a>
+    <a href="/">Home</a>
+    <a href="mailto:hello@brandondeurbrouck.com">Questions?</a>
+  </div>
+
+</body>
+</html>
