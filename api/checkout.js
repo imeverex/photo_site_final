@@ -1,6 +1,6 @@
-const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+const Stripe = require('stripe');
 
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
@@ -10,6 +10,8 @@ export default async function handler(req, res) {
   if (!printName || !size || !price) {
     return res.status(400).json({ error: 'Missing required fields' });
   }
+
+  const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
 
   try {
     const session = await stripe.checkout.sessions.create({
@@ -29,7 +31,7 @@ export default async function handler(req, res) {
         },
       ],
       mode: 'payment',
-      success_url: `${req.headers.origin}/success.html?session_id={CHECKOUT_SESSION_ID}`,
+      success_url: `${req.headers.origin}/success.html?name=${encodeURIComponent(printName)}&size=${encodeURIComponent(size)}&price=${encodeURIComponent(price)}&img=${encodeURIComponent(imageUrl || '')}`,
       cancel_url: `${req.headers.origin}/prints.html`,
       shipping_address_collection: {
         allowed_countries: ['CA', 'US'],
@@ -45,4 +47,4 @@ export default async function handler(req, res) {
     console.error('Stripe error:', error);
     res.status(500).json({ error: error.message });
   }
-}
+};
