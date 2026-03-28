@@ -480,7 +480,7 @@ body::before {
   <div class="zoom-sticky" id="zoomSticky">
     <div class="zoom-label" id="zoomLabel">The work</div>
     <div class="zoom-img-wrap" id="zoomWrap">
-      <img src="images/photo-1.jpg" alt="Featured work" id="zoomImg">
+      <img src="images/stars-1.jpg" alt="Featured work" id="zoomImg">
       <div class="zoom-text-over" id="zoomTextOver">
         <span>Worth the drive. Worth the wait.</span>
       </div>
@@ -515,23 +515,23 @@ body::before {
     <a href="gallery.html" class="sec-link">Full gallery</a>
   </div>
   <div class="gallery-featured" id="galleryFeatured">
-    <div class="gitem gf-main"><img src="images/photo-1.jpg" alt="Featured" loading="lazy"><span class="gitem-tag">Portrait</span></div>
-    <div class="gitem"><img src="images/photo-2.jpg" alt="Landscape" loading="lazy"><span class="gitem-tag">Landscape</span></div>
-    <div class="gitem"><img src="images/photo-3.jpg" alt="Golden Hour" loading="lazy"><span class="gitem-tag">Golden Hour</span></div>
-    <div class="gitem"><img src="images/photo-4.jpg" alt="Badlands" loading="lazy"><span class="gitem-tag">Badlands</span></div>
-    <div class="gitem"><img src="images/photo-5.jpg" alt="Forest" loading="lazy"><span class="gitem-tag">Forest</span></div>
+    <div class="gitem gf-main"><img src="images/stars-1.jpg" alt="Featured" loading="lazy"><span class="gitem-tag">Portrait</span></div>
+    <div class="gitem"><img src="images/landscape-1.jpg" alt="Landscape" loading="lazy"><span class="gitem-tag">Landscape</span></div>
+    <div class="gitem"><img src="images/landscape-2.jpg" alt="Landscape" loading="lazy"><span class="gitem-tag">Golden Hour</span></div>
+    <div class="gitem"><img src="images/wildlife-1.jpg" alt="Wildlife" loading="lazy"><span class="gitem-tag">Badlands</span></div>
+    <div class="gitem"><img src="images/city-1.jpg" alt="City" loading="lazy"><span class="gitem-tag">Forest</span></div>
   </div>
   <div class="hscroll-section reveal">
     <div class="hscroll-label">More work &#8212; drag to explore</div>
     <div class="hscroll-hint" id="hscrollHint">Drag or swipe &#8594;</div>
     <div class="hscroll-track-wrap" id="hscrollWrap">
       <div class="hscroll-track">
-        <div class="hitem"><img src="images/photo-6.jpg" alt="" loading="lazy"></div>
-        <div class="hitem"><img src="images/photo-7.jpg" alt="" loading="lazy"></div>
-        <div class="hitem"><img src="images/photo-8.jpg" alt="" loading="lazy"></div>
-        <div class="hitem"><img src="images/photo-9.jpg" alt="" loading="lazy"></div>
-        <div class="hitem"><img src="images/photo-1.jpg" alt="" loading="lazy"></div>
-        <div class="hitem"><img src="images/photo-3.jpg" alt="" loading="lazy"></div>
+        <div class="hitem"><img src="images/stars-2.jpg" alt="" loading="lazy"></div>
+        <div class="hitem"><img src="images/landscape-3.jpg" alt="" loading="lazy"></div>
+        <div class="hitem"><img src="images/wildlife-2.jpg" alt="" loading="lazy"></div>
+        <div class="hitem"><img src="images/city-2.jpg" alt="" loading="lazy"></div>
+        <div class="hitem"><img src="images/stars-3.jpg" alt="" loading="lazy"></div>
+        <div class="hitem"><img src="images/city-3.jpg" alt="" loading="lazy"></div>
       </div>
     </div>
   </div>
@@ -887,4 +887,11 @@ lightbox.addEventListener('click', function(e) { if (e.target === lightbox) clos
 document.addEventListener('keydown', function(e) {
   if (!lightbox.classList.contains('open')) return;
   if (e.key === 'Escape') closeLb();
-  if (e.key === 'ArrowL
+  if (e.key === 'ArrowLeft') navLb(-1);
+  if (e.key === 'ArrowRight') navLb(1);
+});
+
+document.getElementById('yr').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
