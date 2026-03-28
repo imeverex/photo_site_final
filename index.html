@@ -3,7 +3,34 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Brandon Deurbrouck — Photographer</title>
+
+<title>Brandon Deurbrouck — Alberta Photographer | Night Skies, Landscapes & City</title>
+<meta name="description" content="Calgary-based photographer capturing Alberta's night skies, mountain landscapes, and city lights. Limited edition Giclée prints available. Commissions open.">
+<meta name="author" content="Brandon Deurbrouck">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.brandondeurbrouck.com/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.brandondeurbrouck.com/">
+<meta property="og:title" content="Brandon Deurbrouck — Alberta Photographer">
+<meta property="og:description" content="Calgary-based photographer capturing Alberta's night skies, landscapes, and city lights. Limited edition prints available.">
+<meta property="og:image" content="https://www.brandondeurbrouck.com/images/hero.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_CA">
+<meta property="og:site_name" content="Brandon Deurbrouck Photography">
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Brandon Deurbrouck — Alberta Photographer">
+<meta name="twitter:description" content="Calgary-based photographer capturing Alberta's night skies, landscapes, and city lights.">
+<meta name="twitter:image" content="https://www.brandondeurbrouck.com/images/hero.jpg">
+
+<!-- Structured data -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://www.brandondeurbrouck.com/#brandon","name":"Brandon Deurbrouck","url":"https://www.brandondeurbrouck.com","jobTitle":"Photographer","description":"Calgary-based photographer specialising in night sky, landscape, and city photography across Alberta.","email":"b.deurbrouck@live.com","address":{"@type":"PostalAddress","addressLocality":"Calgary","addressRegion":"Alberta","addressCountry":"CA"},"sameAs":["https://www.instagram.com/brandondeurbrouck/","https://500px.com/p/brandondeurbrouck","https://www.linkedin.com/in/brandon-deurbrouck"]},{"@type":"WebSite","@id":"https://www.brandondeurbrouck.com/#website","url":"https://www.brandondeurbrouck.com","name":"Brandon Deurbrouck Photography","publisher":{"@id":"https://www.brandondeurbrouck.com/#brandon"},"inLanguage":"en-CA"}]}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
@@ -312,7 +339,7 @@ body::before {
   .nav { padding: 1.5rem 2rem; }
   .nav.scrolled { padding: 1rem 2rem; }
   .hero { grid-template-columns: 1fr; }
-  .hero-left { padding: 9rem 2.5rem 4rem; min-height: 100vh; }
+  .hero-left { padding: 6rem 2.5rem 3rem; min-height: auto; }
   .hero-right { height: 60vw; }
   .scroll-hint { display: none; }
   .zoom-section { height: 110vh; }
@@ -463,7 +490,7 @@ body::before {
 
 <div class="stats reveal">
   <div class="stat"><span class="stat-num" data-target="1200">0</span><span class="stat-label">Hours in the field</span></div>
-  <div class="stat"><span class="stat-num" data-target="4">0</span><span class="stat-label">Years shooting</span></div>
+  <div class="stat"><span class="stat-num" data-target="10">0</span><span class="stat-label">Years shooting</span></div>
   <div class="stat"><span class="stat-num" data-target="38">0</span><span class="stat-label">Prints sold</span></div>
   <div class="stat"><span class="stat-num" data-target="3">0</span><span class="stat-label">Limited editions</span></div>
 </div>
@@ -607,7 +634,7 @@ body::before {
     <div class="contact-right">
       <p class="contact-body">Commission, print inquiry, or something else &#8212; happy to hear it.</p>
       <a href="https://calendar.app.google/5akHH681YC5tMsaz9" target="_blank" class="btn-primary" style="width:fit-content">Book a call &#8594;</a>
-      <a href="mailto:hello@brandondeurbrouck.com" class="contact-email">hello&#64;brandondeurbrouck.com</a>
+      <a href="mailto:b.deurbrouck@live.com" class="contact-email">b.deurbrouck@live.com</a>
       <div class="contact-socials">
         <a href="https://www.instagram.com/brandondeurbrouck/" target="_blank" aria-label="Instagram" class="social-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".5" fill="currentColor" stroke="none"/></svg></a>
         <a href="https://500px.com/p/brandondeurbrouck" target="_blank" aria-label="500px" class="social-icon"><svg width="20" height="20" viewBox="0 0 305 305" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M254.773,118.227c-29.076,0-47.951,22.781-54.153,30.267c-0.045,0.055-0.091,0.11-0.137,0.165
@@ -643,7 +670,7 @@ body::before {
   <div class="lb-caption" id="lbCap"></div>
 </div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // CURSOR
 var cur = document.getElementById('cursor');
 var ring = document.getElementById('cursorRing');
@@ -860,11 +887,4 @@ lightbox.addEventListener('click', function(e) { if (e.target === lightbox) clos
 document.addEventListener('keydown', function(e) {
   if (!lightbox.classList.contains('open')) return;
   if (e.key === 'Escape') closeLb();
-  if (e.key === 'ArrowLeft') navLb(-1);
-  if (e.key === 'ArrowRight') navLb(1);
-});
-
-document.getElementById('yr').textContent = new Date().getFullYear();
-</script>
-</body>
-</html>
+  if (e.key === 'ArrowL
